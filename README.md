@@ -6,13 +6,13 @@ React-Share-Kit is a simple and easy-to-use library for adding social media shar
 
 To install React-Share-Kit, simply run:
 
-```
+```bash
 npm install react-share-kit
 ```
 
 or
 
-```
+```bash
 yarn add react-share-kit
 ```
 
