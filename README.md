@@ -1,6 +1,6 @@
 # React-Share-Kit
 
-React-Share-Kit is a simple and easy-to-use library for adding social media share buttons to your React applications. With React-Share-Kit, you can quickly integrate share buttons for popular social media platforms such as Facebook, Twitter, LinkedIn, and more.
+React-Share-Kit is a simple and easy-to-use library for adding social media share buttons to your React & Next applications. With React-Share-Kit, you can quickly integrate share buttons for popular social media platforms such as Facebook, Twitter, LinkedIn, and more.
 
 ## Installation
 
