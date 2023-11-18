@@ -47,4 +47,4 @@ For more information on how to use React-Share-Kit, including a full list of ava
 
 ## License
 
-React-Share-Kit is licensed under the MIT License. See the [LICENSE](https://github.com/ayda-tech/react-share-kit/LICENSE) file for more details.
+React-Share-Kit is licensed under the MIT License. See the [LICENSE](https://github.com/ayda-tech/react-share-kit/blob/main/LICENSE) file for more details.
