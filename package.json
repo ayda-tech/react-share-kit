@@ -39,8 +39,9 @@
   "peerDependencies": {
     "react": "^18.2.0"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "files": ["dist"],
-  "types": "dist/types/index.d.ts"
+  "main": "dist/next-share-kit.js",
+  "module": "dist/next-share-kit.es.js",
+  "jsnext:main": "dist/next-share-kit.es.js",
+  "types": "dist/next-share-kit.d.ts"
 }
+

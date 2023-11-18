@@ -8,12 +8,12 @@ import packageJSON from './package.json' assert { type: 'json' }
 
 // ======= FOR BUILDING NODE.JS PACKAGE =======
 // import builtins from 'builtin-modules'
-import resolve, { nodeResolve } from '@rollup/plugin-node-resolve'
+// import resolve, { nodeResolve } from '@rollup/plugin-node-resolve'
 // ============================================
 
 export default [
   {
-    input: 'src/index.ts',
+    input: 'src/react-share-kit.ts',
     output: [
       {
         file: packageJSON.main,
@@ -36,10 +36,10 @@ export default [
       babel({
         exclude: 'node_modules/**',
       }),
-      resolve({
-        preferBuiltins: true,
-      }),
-      nodeResolve(),
+      // resolve({
+      //   preferBuiltins: true,
+      // }),
+      // nodeResolve(),
       commonjs({
         extensions: ['.js', '.ts', '.tsx'],
       }),
@@ -47,9 +47,9 @@ export default [
     ],
   },
   {
-    input: 'dist/esm/index.d.ts',
+    input: 'dist/react-share-kit.d.ts',
     output: {
-      file: 'dist/types/index.d.ts',
+      file: 'dist/react-share-kit.d.ts',
       format: 'esm',
     },
     plugins: [dts()],
