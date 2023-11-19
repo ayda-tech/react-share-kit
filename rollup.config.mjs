@@ -13,7 +13,7 @@ import packageJSON from './package.json' assert { type: 'json' }
 
 export default [
   {
-    input: 'src/react-share-kit.ts',
+    input: 'src/index.ts',
     output: [
       {
         file: packageJSON.main,
@@ -47,9 +47,9 @@ export default [
     ],
   },
   {
-    input: 'dist/react-share-kit.d.ts',
+    input: 'dist/index.d.ts',
     output: {
-      file: 'dist/react-share-kit.d.ts',
+      file: 'dist/index.d.ts',
       format: 'esm',
     },
     plugins: [dts()],
