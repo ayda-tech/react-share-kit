@@ -1,54 +1,22 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
-
-function tumblrLink(
-  url: string,
-  {
-    title,
-    caption,
-    tags,
-    posttype,
-  }: {
-    title?: string;
-    caption?: string;
-    tags?: string;
-    posttype?: 'link' | string;
-  },
-) {
-  return (
-    'https://www.tumblr.com/widgets/share/tool' +
-    transformObjectToParams({
-      canonicalUrl: url,
-      title,
-      caption,
-      tags,
-      posttype,
-    })
-  );
-}
-
-type Options = {
-  title?: string;
-  caption?: string;
-  posttype?: 'link' | string;
-};
+import createShareButton from '../../hocs/createShareButton'
+import { tumblrLink } from '../../utils/button'
 
 const TumblrShareButton = createShareButton<
-  Options & { tags?: string[] },
-  Options & { tags: string }
+  TumblrLinkParams & { tags?: string[] },
+  TumblrLinkParams & { tags: string }
 >(
   'tumblr',
   tumblrLink,
-  (props) => ({
-    title: props.title,
-    tags: (props.tags || []).join(','),
-    caption: props.caption,
-    posttype: props.posttype || 'link',
+  ({ title, tags, caption, posttype }) => ({
+    title,
+    caption,
+    tags: (tags || []).join(','),
+    posttype: posttype || 'link',
   }),
   {
     windowWidth: 660,
     windowHeight: 460,
   },
-);
+)
 
-export default TumblrShareButton;
+export default TumblrShareButton

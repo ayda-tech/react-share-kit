@@ -1,23 +1,9 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
-
-function instapaperLink(
-  url: string,
-  { title, description }: { title?: string; description?: string },
-) {
-  return (
-    'http://www.instapaper.com/hello2' +
-    transformObjectToParams({
-      url,
-      title,
-      description,
-    })
-  );
-}
+import createShareButton from '../../hocs/createShareButton'
+import { instapaperLink } from '../../utils/button'
 
 const InstapaperShareButton = createShareButton<{
-  title?: string;
-  description?: string;
+  title?: string
+  description?: string
 }>(
   'instapaper',
   instapaperLink,
@@ -30,6 +16,6 @@ const InstapaperShareButton = createShareButton<{
     windowHeight: 500,
     windowPosition: 'windowCenter',
   },
-);
+)
 
-export default InstapaperShareButton;
+export default InstapaperShareButton

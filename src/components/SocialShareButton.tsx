@@ -1,58 +1,58 @@
-import React, { Component, Ref } from 'react';
+import React, { Component, Ref } from 'react'
 import {
   CustomWindow,
   getPositionOnWindowCenter,
   getPositionOnScreenCenter,
   isPromise,
-} from '../utils';
+} from '../utils'
 
-type NetworkLink<LinkOptions> = (url: string, options: LinkOptions) => string;
+type NetworkLink<LinkOptions> = (url: string, options: LinkOptions) => string
 
-type WindowPosition = 'windowCenter' | 'screenCenter';
+type WindowPosition = 'windowCenter' | 'screenCenter'
 
 interface CustomProps<LinkOptions> {
-  children: React.ReactNode;
+  children: React.ReactNode
   /**
    * Disables click action and adds `disabled` class
    */
-  disabled?: boolean;
+  disabled?: boolean
   /**
    * Style when button is disabled
    * @default { opacity: 0.6 }
    */
-  disabledStyle?: React.CSSProperties;
-  forwardedRef?: Ref<HTMLButtonElement>;
-  networkName: string;
-  networkLink: NetworkLink<LinkOptions>;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>, link: string) => void;
-  openShareDialogOnClick?: boolean;
-  opts: LinkOptions;
+  disabledStyle?: React.CSSProperties
+  forwardedRef?: Ref<HTMLButtonElement>
+  networkName: string
+  networkLink: NetworkLink<LinkOptions>
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>, link: string) => void
+  openShareDialogOnClick?: boolean
+  opts: LinkOptions
   /**
    * URL of the shared page
    */
-  url: string;
-  style?: React.CSSProperties;
-  windowWidth?: number;
-  windowHeight?: number;
-  windowPosition?: WindowPosition;
+  url: string
+  style?: React.CSSProperties
+  windowWidth?: number
+  windowHeight?: number
+  windowPosition?: WindowPosition
   /**
    *  Takes a function that returns a Promise to be fulfilled before calling
    * `onClick`. If you do not return promise, `onClick` is called immediately.
    */
-  beforeOnClick?: () => Promise<void> | void;
+  beforeOnClick?: () => Promise<void> | void
   /**
    * Takes a function to be called after closing share dialog.
    */
-  onShareWindowClose?: () => void;
-  resetButtonStyle?: boolean;
-  blankTarget?: boolean;
+  onShareWindowClose?: () => void
+  resetButtonStyle?: boolean
+  blankTarget?: boolean
 }
 
 export type Props<LinkOptions> = Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   keyof CustomProps<LinkOptions>
 > &
-  CustomProps<LinkOptions>;
+  CustomProps<LinkOptions>
 
 export default class SocialShareButton<LinkOptions> extends Component<
   Props<LinkOptions>
@@ -61,7 +61,7 @@ export default class SocialShareButton<LinkOptions> extends Component<
     disabledStyle: { opacity: 0.6 },
     openShareDialogOnClick: true,
     resetButtonStyle: true,
-  };
+  }
 
   openShareDialog = (link: string) => {
     const {
@@ -70,7 +70,7 @@ export default class SocialShareButton<LinkOptions> extends Component<
       windowPosition = 'windowCenter',
       windowWidth = 550,
       blankTarget = false,
-    } = this.props;
+    } = this.props
 
     const windowConfig = {
       height: windowHeight,
@@ -78,10 +78,10 @@ export default class SocialShareButton<LinkOptions> extends Component<
       ...(windowPosition === 'windowCenter'
         ? getPositionOnWindowCenter(windowWidth, windowHeight)
         : getPositionOnScreenCenter(windowWidth, windowHeight)),
-    };
+    }
 
-    CustomWindow(link, windowConfig, blankTarget, onShareWindowClose);
-  };
+    CustomWindow(link, windowConfig, blankTarget, onShareWindowClose)
+  }
 
   handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
     const {
@@ -92,35 +92,35 @@ export default class SocialShareButton<LinkOptions> extends Component<
       url,
       openShareDialogOnClick,
       opts,
-    } = this.props;
+    } = this.props
 
-    const link = networkLink(url, opts);
+    const link = networkLink(url, opts)
 
     if (disabled) {
-      return;
+      return
     }
 
-    event.preventDefault();
+    event.preventDefault()
 
     if (beforeOnClick) {
-      const returnVal = beforeOnClick();
+      const returnVal = beforeOnClick()
 
       if (isPromise(returnVal)) {
-        await returnVal;
+        await returnVal
       }
     }
 
     if (openShareDialogOnClick) {
-      this.openShareDialog(link);
+      this.openShareDialog(link)
     }
 
     if (onClick) {
-      onClick(event, link);
+      onClick(event, link)
     }
-  };
+  }
 
   render() {
-    const { children, forwardedRef, networkName, style, ...rest } = this.props;
+    const { children, forwardedRef, networkName, style, ...rest } = this.props
 
     const newStyle = {
       backgroundColor: 'transparent',
@@ -131,7 +131,7 @@ export default class SocialShareButton<LinkOptions> extends Component<
       cursor: 'pointer',
       outline: 'none',
       ...style,
-    };
+    }
 
     return (
       <button
@@ -142,6 +142,6 @@ export default class SocialShareButton<LinkOptions> extends Component<
       >
         {children}
       </button>
-    );
+    )
   }
 }

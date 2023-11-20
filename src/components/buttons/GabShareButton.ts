@@ -1,15 +1,5 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
-
-function gabLink(url: string, { title }: { title?: string }) {
-  return (
-    'https://gab.com/compose' +
-    transformObjectToParams({
-      url,
-      text: title,
-    })
-  );
-}
+import createShareButton from '../../hocs/createShareButton'
+import { gabLink } from '../../utils/button'
 
 const GabShareButton = createShareButton<{ title?: string }>(
   'gab',
@@ -22,6 +12,6 @@ const GabShareButton = createShareButton<{ title?: string }>(
     windowHeight: 640,
     windowPosition: 'windowCenter',
   },
-);
+)
 
-export default GabShareButton;
+export default GabShareButton

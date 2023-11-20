@@ -1,8 +1,8 @@
-import React, { Ref, forwardRef } from 'react';
+import React, { Ref, forwardRef } from 'react'
 
 import SocialShareButton, {
   Props as ShareButtonProps,
-} from '../components/SocialShareButton';
+} from '../components/SocialShareButton'
 
 function createShareButton<
   OptionProps extends Record<string, any>,
@@ -17,16 +17,16 @@ function createShareButton<
     ShareButtonProps<LinkOptions>,
     'forwardedRef' | 'networkName' | 'networkLink' | 'opts'
   > &
-    OptionProps;
+    OptionProps
 
   function CreatedButton(props: Props, ref: Ref<HTMLButtonElement>) {
-    const opts: any = optsMap(props);
-    const passedProps: any = { ...props };
+    const opts: any = optsMap(props)
+    const passedProps: any = { ...props }
 
-    const optsKeys = Object.keys(opts);
+    const optsKeys = Object.keys(opts)
     optsKeys.forEach((key) => {
-      delete passedProps[key];
-    });
+      delete passedProps[key]
+    })
 
     return (
       <SocialShareButton<LinkOptions>
@@ -37,12 +37,12 @@ function createShareButton<
         networkLink={link}
         opts={optsMap(props)}
       />
-    );
+    )
   }
 
-  CreatedButton.displayName = `ShareButton-${networkName}`;
+  CreatedButton.displayName = `ShareButton-${networkName}`
 
-  return forwardRef(CreatedButton);
+  return forwardRef(CreatedButton)
 }
 
-export default createShareButton;
+export default createShareButton

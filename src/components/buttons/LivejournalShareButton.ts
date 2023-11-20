@@ -1,25 +1,9 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
+import createShareButton from '../../hocs/createShareButton'
+import { liveJournalLink } from '../../utils/button'
 
-function livejournalLink(
-  _url: string,
-  { title, description }: { title?: string; description?: string },
-) {
-  return (
-    'https://www.livejournal.com/update.bml' +
-    transformObjectToParams({
-      subject: title,
-      event: description,
-    })
-  );
-}
-
-const LivejournalShareButton = createShareButton<{
-  title?: string;
-  description?: string;
-}>(
-  'livejournal',
-  livejournalLink,
+const LiveJournalShareButton = createShareButton<LiveJournalLinkParams>(
+  'liveJournal',
+  liveJournalLink,
   (props) => ({
     title: props.title,
     description: props.description,
@@ -28,6 +12,6 @@ const LivejournalShareButton = createShareButton<{
     windowWidth: 660,
     windowHeight: 460,
   },
-);
+)
 
-export default LivejournalShareButton;
+export default LiveJournalShareButton
