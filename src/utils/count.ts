@@ -23,6 +23,14 @@ declare global {
   }
 }
 
+/**
+ * Retrieves the share count of a Facebook post or URL.
+ *
+ * @param shareUrl - The URL or post to retrieve the share count for.
+ * @param callback - The callback function to be called with the share count.
+ * @param appId - The Facebook app ID (optional).
+ * @param appSecret - The Facebook app secret (optional).
+ */
 export function getFacebookShareCount(
   shareUrl: string,
   callback: (shareCount?: number) => void,
@@ -38,6 +46,12 @@ export function getFacebookShareCount(
   })
 }
 
+/**
+ * Retrieves the share count of a URL on Hatena Bookmark.
+ *
+ * @param shareUrl - The URL to retrieve the share count for.
+ * @param callback - The callback function to be called with the share count.
+ */
 export function getHatenaShareCount(
   shareUrl: string,
   callback: (shareCount?: number) => void,
@@ -55,6 +69,12 @@ export function getHatenaShareCount(
   )
 }
 
+/**
+ * Retrieves the share count of a URL on OK.ru (Odnoklassniki).
+ *
+ * @param shareUrl - The URL to retrieve the share count for.
+ * @param callback - The callback function to be called with the share count.
+ */
 export function getOKShareCount(
   shareUrl: string,
   callback: (shareCount?: number) => void,
@@ -94,6 +114,12 @@ export function getOKShareCount(
   )
 }
 
+/**
+ * Retrieves the share count of a URL on Pinterest.
+ *
+ * @param shareUrl - The URL to retrieve the share count for.
+ * @param callback - The callback function to be called with the share count.
+ */
 export function getPinterestShareCount(
   shareUrl: string,
   callback: (shareCount?: number) => void,
@@ -111,6 +137,12 @@ export function getPinterestShareCount(
   )
 }
 
+/**
+ * Retrieves the share count of a URL on Reddit.
+ *
+ * @param shareUrl - The URL to retrieve the share count for.
+ * @param callback - The callback function to be called with the share count.
+ */
 export function getRedditShareCount(
   shareUrl: string,
   callback: (shareCount?: number) => void,
@@ -130,6 +162,12 @@ export function getRedditShareCount(
   })
 }
 
+/**
+ * Retrieves the share count of a URL on Tumblr.
+ *
+ * @param shareUrl - The URL to retrieve the share count for.
+ * @param callback - The callback function to be called with the share count.
+ */
 export function getTumblrShareCount(
   shareUrl: string,
   callback: (shareCount?: number) => void,
@@ -149,6 +187,12 @@ export function getTumblrShareCount(
   )
 }
 
+/**
+ * Retrieves the share count of a URL on VK.com (VKontakte).
+ *
+ * @param shareUrl - The URL to retrieve the share count for.
+ * @param callback - The callback function to be called with the share count.
+ */
 export function getVKShareCount(
   shareUrl: string,
   callback: (shareCount?: number) => void,
