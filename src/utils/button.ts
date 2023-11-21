@@ -93,6 +93,13 @@ export function facebookMessengerLink(
   )
 }
 
+/**
+ * Generates a Gab Social link for composing a post.
+ *
+ * @param url - The URL to be shared within the post.
+ * @param title - The title or text of the post.
+ * @returns The Gab Social link for composing the post.
+ */
 export function gabLink(url: string, { title }: GapLinkParams) {
   return (
     'https://gab.com/compose' +
@@ -103,10 +110,25 @@ export function gabLink(url: string, { title }: GapLinkParams) {
   )
 }
 
+/**
+ * Generates a Hatena bookmark link for adding a bookmark.
+ *
+ * @param url - The URL to be bookmarked.
+ * @param title - The title of the bookmark.
+ * @returns The Hatena bookmark link.
+ */
 export function hatenaLink(url: string, { title }: HatenaLinkParams) {
   return `http://b.hatena.ne.jp/add?mode=confirm&url=${url}&title=${title}`
 }
 
+/**
+ * Generates an Instapaper link for saving a page.
+ *
+ * @param url - The URL of the page to be saved.
+ * @param title - The title of the page.
+ * @param description - Optional. The description of the page.
+ * @returns The Instapaper link for saving the page.
+ */
 export function instapaperLink(
   url: string,
   { title, description }: InstaPaperLinkParams,
@@ -121,6 +143,13 @@ export function instapaperLink(
   )
 }
 
+/**
+ * Generates a LINE Login link for sharing a URL.
+ *
+ * @param url - The URL to be shared.
+ * @param title - The title or text of the shared content.
+ * @returns The LINE Login link for sharing the URL.
+ */
 export function lineLink(url: string, { title }: LineLinkParams) {
   return (
     'https://social-plugins.line.me/lineit/share' +
@@ -131,6 +160,15 @@ export function lineLink(url: string, { title }: LineLinkParams) {
   )
 }
 
+/**
+ * Generates a LinkedIn sharing link for sharing an article.
+ *
+ * @param url - The URL of the article to be shared.
+ * @param title - The title of the article.
+ * @param summary - Optional. The summary or description of the article.
+ * @param source - Optional. The source or publication of the article.
+ * @returns The LinkedIn sharing link for sharing the article.
+ */
 export function linkedinLink(
   url: string,
   { title, summary, source }: LinkedInLinkParams,
@@ -142,6 +180,14 @@ export function linkedinLink(
   )
 }
 
+/**
+ * Generates a LiveJournal update link for creating a new post.
+ *
+ * @param _url - This parameter is not used.
+ * @param title - The title of the post.
+ * @param description - The description or content of the post.
+ * @returns The LiveJournal update link for creating a new post.
+ */
 export function liveJournalLink(
   _url: string,
   { title, description }: LiveJournalLinkParams,
@@ -155,6 +201,15 @@ export function liveJournalLink(
   )
 }
 
+/**
+ * Generates a Mail.Ru sharing link for sharing content.
+ *
+ * @param url - The URL of the content to be shared.
+ * @param title - The title of the content.
+ * @param description - The description or summary of the content.
+ * @param imageUrl - Optional. The URL of an image associated with the content.
+ * @returns The Mail.Ru sharing link for sharing the content.
+ */
 export function mailruLink(
   url: string,
   { title, description, imageUrl }: MailruLinkParams,
@@ -170,6 +225,14 @@ export function mailruLink(
   )
 }
 
+/**
+ * Generates a Pinterest sharing link.
+ *
+ * @param url - The URL to be pinned.
+ * @param media - The media URL to be associated with the pin (optional).
+ * @param description - The description of the pin (optional).
+ * @returns The Pinterest sharing link.
+ */
 export function pinterestLink(
   url: string,
   { media, description }: PinterestLinkParams,
@@ -184,6 +247,13 @@ export function pinterestLink(
   )
 }
 
+/**
+ * Generates a Pocket saving link.
+ *
+ * @param url - The URL to be saved.
+ * @param title - The title of the saved item (optional).
+ * @returns The Pocket saving link.
+ */
 export function pocketLink(url: string, { title }: PocketLinkParams) {
   return (
     'https://getpocket.com/save' +
@@ -194,6 +264,13 @@ export function pocketLink(url: string, { title }: PocketLinkParams) {
   )
 }
 
+/**
+ * Generates a Reddit submission link.
+ *
+ * @param url - The URL to be submitted.
+ * @param title - The title of the submission (optional).
+ * @returns The Reddit submission link.
+ */
 export function redditLink(url: string, { title }: RedditLinkParams) {
   return (
     'https://www.reddit.com/submit' +
@@ -204,6 +281,13 @@ export function redditLink(url: string, { title }: RedditLinkParams) {
   )
 }
 
+/**
+ * Generates a Telegram sharing link.
+ *
+ * @param url - The URL to be shared.
+ * @param title - The title of the shared content (optional).
+ * @returns The Telegram sharing link.
+ */
 export function telegramLink(url: string, { title }: TelegramLinkParams) {
   return (
     'https://telegram.me/share/' +
@@ -214,6 +298,16 @@ export function telegramLink(url: string, { title }: TelegramLinkParams) {
   )
 }
 
+/**
+ * Generates a Tumblr sharing link.
+ *
+ * @param url - The URL to be shared.
+ * @param title - The title of the shared content (optional).
+ * @param caption - The caption of the shared content (optional).
+ * @param tags - An array of tags associated with the shared content (optional).
+ * @param posttype - The type of post (optional).
+ * @returns The Tumblr sharing link.
+ */
 export function tumblrLink(
   url: string,
   { title, caption, tags, posttype }: TumblrLinkParams,
@@ -230,6 +324,16 @@ export function tumblrLink(
   )
 }
 
+/**
+ * Generates a Twitter sharing link.
+ *
+ * @param url - The URL to be shared.
+ * @param title - The title of the shared content (optional).
+ * @param via - The Twitter username to attribute the tweet to (optional).
+ * @param hashtags - An array of hashtags to include in the tweet (optional).
+ * @param related - An array of related accounts to suggest following after the tweet is sent (optional).
+ * @returns The Twitter sharing link.
+ */
 export function twitterLink(
   url: string,
   { title, via, hashtags = [], related = [] }: TwitterLinkParams,
@@ -246,6 +350,14 @@ export function twitterLink(
   )
 }
 
+/**
+ * Generates a Viber sharing link.
+ *
+ * @param url - The URL to be shared.
+ * @param title - The title of the shared content (optional).
+ * @param separator - The separator between the title and URL (optional).
+ * @returns The Viber sharing link.
+ */
 export function viberLink(url: string, { title, separator }: ViberLinkParams) {
   return (
     'viber://forward' +
@@ -255,6 +367,16 @@ export function viberLink(url: string, { title, separator }: ViberLinkParams) {
   )
 }
 
+/**
+ * Generates a VKontakte (VK) sharing link.
+ *
+ * @param url - The URL to be shared.
+ * @param title - The title of the shared content (optional).
+ * @param image - The URL of the image to be shared (optional).
+ * @param noParse - Specifies whether to disable VK parsing of the shared content (optional).
+ * @param noVkLinks - Specifies whether to disable VK-specific links in the shared content (optional).
+ * @returns The VKontakte sharing link.
+ */
 export function vkLink(
   url: string,
   { title, image, noParse, noVkLinks }: VKShareLinkParams,
@@ -271,6 +393,14 @@ export function vkLink(
   )
 }
 
+/**
+ * Generates a Weibo sharing link.
+ *
+ * @param url - The URL to be shared.
+ * @param title - The title of the shared content (optional).
+ * @param image - The URL of the image to be shared (optional).
+ * @returns The Weibo sharing link.
+ */
 export function weiboLink(url: string, { title, image }: WeiboShareLinkParams) {
   return (
     'http://service.weibo.com/share/share.php' +
@@ -282,6 +412,14 @@ export function weiboLink(url: string, { title, image }: WeiboShareLinkParams) {
   )
 }
 
+/**
+ * Generates a WhatsApp sharing link.
+ *
+ * @param url - The URL to be shared.
+ * @param title - The title of the shared content (optional).
+ * @param separator - The separator between the title and URL (optional).
+ * @returns The WhatsApp sharing link.
+ */
 export function whatsappLink(
   url: string,
   { title, separator }: WhatsAppLinkParams,
@@ -296,6 +434,14 @@ export function whatsappLink(
   )
 }
 
+/**
+ * Generates a Workplace sharing link.
+ *
+ * @param url - The URL to be shared.
+ * @param quote - The quote or message to include in the shared content (optional).
+ * @param hashtag - The hashtag to include in the shared content (optional).
+ * @returns The Workplace sharing link.
+ */
 export function workplaceLink(
   url: string,
   { quote, hashtag }: WorkplaceLinkParams,
