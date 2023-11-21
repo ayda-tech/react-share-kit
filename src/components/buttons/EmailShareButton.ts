@@ -1,4 +1,5 @@
 import createShareButton from '../../hocs/createShareButton'
+import { EmailLinkParams } from '../../types'
 import { emailLink } from '../../utils/button'
 
 const EmailShareButton = createShareButton<EmailLinkParams>(

@@ -1,4 +1,5 @@
 import createShareButton from '../../hocs/createShareButton'
+import { LinkedInLinkParams } from '../../types'
 import { linkedinLink } from '../../utils/button'
 
 const LinkedinShareButton = createShareButton<LinkedInLinkParams>(

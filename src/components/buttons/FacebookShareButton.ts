@@ -1,10 +1,8 @@
 import createShareButton from '../../hocs/createShareButton'
+import { FacebookLinkParams } from '../../types'
 import { facebookLink } from '../../utils/button'
 
-const FacebookShareButton = createShareButton<{
-  quote?: string
-  hashtag?: string
-}>(
+const FacebookShareButton = createShareButton<FacebookLinkParams>(
   'facebook',
   facebookLink,
   (props) => ({

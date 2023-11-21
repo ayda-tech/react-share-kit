@@ -1,11 +1,8 @@
 import createShareButton from '../../hocs/createShareButton'
+import { MailruLinkParams } from '../../types'
 import { mailruLink } from '../../utils/button'
 
-const MailruShareButton = createShareButton<{
-  title?: string
-  description?: string
-  imageUrl?: string
-}>(
+const MailruShareButton = createShareButton<MailruLinkParams>(
   'mailru',
   mailruLink,
   ({ title, description, imageUrl }) => ({

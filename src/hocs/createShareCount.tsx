@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { SocialMediaShareCountProps, StateTypes } from '../types'
 
 const defaultChildren = (shareCount: number) => shareCount
 

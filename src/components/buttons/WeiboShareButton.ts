@@ -1,4 +1,5 @@
 import createShareButton from '../../hocs/createShareButton'
+import { WeiboShareLinkParams } from '../../types'
 import { weiboLink } from '../../utils/button'
 
 const WeiboShareButton = createShareButton<WeiboShareLinkParams>(

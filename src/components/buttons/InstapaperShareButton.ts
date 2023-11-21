@@ -1,15 +1,13 @@
 import createShareButton from '../../hocs/createShareButton'
+import { InstaPaperLinkParams } from '../../types'
 import { instapaperLink } from '../../utils/button'
 
-const InstapaperShareButton = createShareButton<{
-  title?: string
-  description?: string
-}>(
+const InstapaperShareButton = createShareButton<InstaPaperLinkParams>(
   'instapaper',
   instapaperLink,
-  (props) => ({
-    title: props.title,
-    description: props.description,
+  ({ title, description }) => ({
+    title,
+    description,
   }),
   {
     windowWidth: 500,

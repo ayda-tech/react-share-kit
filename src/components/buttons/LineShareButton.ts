@@ -1,11 +1,12 @@
 import createShareButton from '../../hocs/createShareButton'
+import { LineLinkParams } from '../../types'
 import { lineLink } from '../../utils/button'
 
-const LineShareButton = createShareButton<{ title?: string }>(
+const LineShareButton = createShareButton<LineLinkParams>(
   'line',
   lineLink,
-  (props) => ({
-    title: props.title,
+  ({ title }) => ({
+    title,
   }),
   {
     windowWidth: 500,

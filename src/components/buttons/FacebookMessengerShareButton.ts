@@ -1,14 +1,15 @@
 import createShareButton from '../../hocs/createShareButton'
+import { FacebookMessengerLinkParams } from '../../types'
 import { facebookMessengerLink } from '../../utils/button'
 
 const FacebookMessengerShareButton =
   createShareButton<FacebookMessengerLinkParams>(
     'facebookMessenger',
     facebookMessengerLink,
-    (props) => ({
-      appId: props.appId,
-      redirectUri: props.redirectUri,
-      to: props.to,
+    ({ appId, redirectUri, to }) => ({
+      appId,
+      redirectUri,
+      to,
     }),
     {
       windowWidth: 1000,

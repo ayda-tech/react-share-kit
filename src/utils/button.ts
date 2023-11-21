@@ -1,4 +1,27 @@
 import transformObjectToParams, { isMobileOrTablet } from '.'
+import {
+  EmailLinkParams,
+  FacebookLinkParams,
+  FacebookMessengerLinkParams,
+  GapLinkParams,
+  HatenaLinkParams,
+  InstaPaperLinkParams,
+  LineLinkParams,
+  LinkedInLinkParams,
+  LiveJournalLinkParams,
+  MailruLinkParams,
+  PinterestLinkParams,
+  PocketLinkParams,
+  RedditLinkParams,
+  TelegramLinkParams,
+  TumblrLinkParams,
+  TwitterLinkParams,
+  VKShareLinkParams,
+  ViberLinkParams,
+  WeiboShareLinkParams,
+  WhatsAppLinkParams,
+  WorkplaceLinkParams,
+} from '../types'
 
 /**
  * Generates a Facebook sharing link.
@@ -121,7 +144,7 @@ export function linkedinLink(
 
 export function liveJournalLink(
   _url: string,
-  { title, description }: { title?: string; description?: string },
+  { title, description }: LiveJournalLinkParams,
 ) {
   return (
     'https://www.livejournal.com/update.bml' +

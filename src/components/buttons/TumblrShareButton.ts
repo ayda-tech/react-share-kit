@@ -1,4 +1,5 @@
 import createShareButton from '../../hocs/createShareButton'
+import { TumblrLinkParams } from '../../types'
 import { tumblrLink } from '../../utils/button'
 
 const TumblrShareButton = createShareButton<

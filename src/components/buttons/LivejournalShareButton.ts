@@ -1,12 +1,13 @@
 import createShareButton from '../../hocs/createShareButton'
+import { LiveJournalLinkParams } from '../../types'
 import { liveJournalLink } from '../../utils/button'
 
 const LiveJournalShareButton = createShareButton<LiveJournalLinkParams>(
   'liveJournal',
   liveJournalLink,
-  (props) => ({
-    title: props.title,
-    description: props.description,
+  ({ description, title }) => ({
+    title,
+    description,
   }),
   {
     windowWidth: 660,

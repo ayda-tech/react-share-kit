@@ -1,11 +1,12 @@
 import createShareButton from '../../hocs/createShareButton'
+import { GapLinkParams } from '../../types'
 import { gabLink } from '../../utils/button'
 
-const GabShareButton = createShareButton<{ title?: string }>(
+const GabShareButton = createShareButton<GapLinkParams>(
   'gab',
   gabLink,
-  (props) => ({
-    title: props.title,
+  ({ title }) => ({
+    title,
   }),
   {
     windowWidth: 660,

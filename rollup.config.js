@@ -47,10 +47,10 @@ export default [
     ],
   },
   {
-    input: 'src/types/index.d.ts',
+    input: 'src/types.d.ts',
     output: {
-      file: 'dist/types/index.d.ts',
-      format: 'esm',
+      file: 'dist/types.d.ts',
+      format: 'es',
     },
     plugins: [dts()],
   },

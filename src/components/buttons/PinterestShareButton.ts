@@ -1,4 +1,5 @@
 import createShareButton from '../../hocs/createShareButton'
+import { PinterestLinkParams } from '../../types'
 import { pinterestLink } from '../../utils/button'
 
 const PinterestShareButton = createShareButton<PinterestLinkParams>(

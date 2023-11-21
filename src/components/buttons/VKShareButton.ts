@@ -1,4 +1,5 @@
 import createShareButton from '../../hocs/createShareButton'
+import { VKShareLinkParams } from '../../types'
 import { vkLink } from '../../utils/button'
 
 const VKShareButton = createShareButton<VKShareLinkParams>(

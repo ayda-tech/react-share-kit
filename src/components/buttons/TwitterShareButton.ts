@@ -1,4 +1,5 @@
 import createShareButton from '../../hocs/createShareButton'
+import { TwitterLinkParams } from '../../types'
 import { twitterLink } from '../../utils/button'
 
 const TwitterShareButton = createShareButton<TwitterLinkParams>(

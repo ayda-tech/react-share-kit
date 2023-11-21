@@ -1,4 +1,5 @@
 import createShareButton from '../../hocs/createShareButton'
+import { WorkplaceLinkParams } from '../../types'
 import { workplaceLink } from '../../utils/button'
 
 const WorkplaceShareButton = createShareButton<WorkplaceLinkParams>(

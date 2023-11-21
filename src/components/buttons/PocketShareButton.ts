@@ -1,11 +1,12 @@
 import createShareButton from '../../hocs/createShareButton'
+import { PocketLinkParams } from '../../types'
 import { pocketLink } from '../../utils/button'
 
 const PocketShareButton = createShareButton<PocketLinkParams>(
   'pocket',
   pocketLink,
-  (props) => ({
-    title: props.title,
+  ({ title }) => ({
+    title,
   }),
   {
     windowWidth: 500,

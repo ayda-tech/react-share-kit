@@ -1,4 +1,5 @@
 import createShareButton from '../../hocs/createShareButton'
+import { WhatsAppLinkParams } from '../../types'
 import { whatsappLink } from '../../utils/button'
 
 const WhatsappShareButton = createShareButton<WhatsAppLinkParams>(

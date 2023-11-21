@@ -1,4 +1,5 @@
 import createShareButton from '../../hocs/createShareButton'
+import { RedditLinkParams } from '../../types'
 import { redditLink } from '../../utils/button'
 
 const RedditShareButton = createShareButton<RedditLinkParams>(

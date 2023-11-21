@@ -1,4 +1,5 @@
 import React from 'react'
+import { SVGConfig, SVGProps } from '../types'
 
 export default function createIcon(config: SVGConfig) {
   const Icon: React.FC<SVGProps> = ({
