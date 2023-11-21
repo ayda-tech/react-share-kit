@@ -1,27 +1,18 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
+import createShareButton from '../../hocs/createShareButton'
+import { RedditLinkParams } from '../../types'
+import { redditLink } from '../../utils/button'
 
-function redditLink(url: string, { title }: { title?: string }) {
-  return (
-    'https://www.reddit.com/submit' +
-    transformObjectToParams({
-      url,
-      title,
-    })
-  );
-}
-
-const RedditShareButton = createShareButton<{ title?: string }>(
+const RedditShareButton = createShareButton<RedditLinkParams>(
   'reddit',
   redditLink,
-  (props) => ({
-    title: props.title,
+  ({ title }) => ({
+    title,
   }),
   {
     windowWidth: 660,
     windowHeight: 460,
     windowPosition: 'windowCenter',
   },
-);
+)
 
-export default RedditShareButton;
+export default RedditShareButton

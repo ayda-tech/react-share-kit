@@ -1,27 +1,18 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
+import createShareButton from '../../hocs/createShareButton'
+import { GapLinkParams } from '../../types'
+import { gabLink } from '../../utils/button'
 
-function gabLink(url: string, { title }: { title?: string }) {
-  return (
-    'https://gab.com/compose' +
-    transformObjectToParams({
-      url,
-      text: title,
-    })
-  );
-}
-
-const GabShareButton = createShareButton<{ title?: string }>(
+const GabShareButton = createShareButton<GapLinkParams>(
   'gab',
   gabLink,
-  (props) => ({
-    title: props.title,
+  ({ title }) => ({
+    title,
   }),
   {
     windowWidth: 660,
     windowHeight: 640,
     windowPosition: 'windowCenter',
   },
-);
+)
 
-export default GabShareButton;
+export default GabShareButton

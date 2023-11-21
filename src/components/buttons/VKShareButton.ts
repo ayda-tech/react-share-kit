@@ -1,39 +1,20 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
+import createShareButton from '../../hocs/createShareButton'
+import { VKShareLinkParams } from '../../types'
+import { vkLink } from '../../utils/button'
 
-type Options = {
-  title?: string;
-  image?: string;
-  noParse?: boolean;
-  noVkLinks?: boolean;
-};
-
-function vkLink(url: string, { title, image, noParse, noVkLinks }: Options) {
-  return (
-    'https://vk.com/share.php' +
-    transformObjectToParams({
-      url,
-      title,
-      image,
-      noparse: noParse ? 1 : 0,
-      no_vk_links: noVkLinks ? 1 : 0,
-    })
-  );
-}
-
-const VKShareButton = createShareButton<Options>(
+const VKShareButton = createShareButton<VKShareLinkParams>(
   'vk',
   vkLink,
-  (props) => ({
-    title: props.title,
-    image: props.image,
-    noParse: props.noParse,
-    noVkLinks: props.noVkLinks,
+  ({ title, image, noParse, noVkLinks }) => ({
+    title,
+    image,
+    noParse,
+    noVkLinks,
   }),
   {
     windowWidth: 660,
     windowHeight: 460,
   },
-);
+)
 
-export default VKShareButton;
+export default VKShareButton

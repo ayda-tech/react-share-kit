@@ -1,24 +1,8 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
+import createShareButton from '../../hocs/createShareButton'
+import { FacebookLinkParams } from '../../types'
+import { facebookLink } from '../../utils/button'
 
-function facebookLink(
-  url: string,
-  { quote, hashtag }: { quote?: string; hashtag?: string },
-) {
-  return (
-    'https://www.facebook.com/sharer/sharer.php' +
-    transformObjectToParams({
-      u: url,
-      quote,
-      hashtag,
-    })
-  );
-}
-
-const FacebookShareButton = createShareButton<{
-  quote?: string;
-  hashtag?: string;
-}>(
+const FacebookShareButton = createShareButton<FacebookLinkParams>(
   'facebook',
   facebookLink,
   (props) => ({
@@ -29,6 +13,6 @@ const FacebookShareButton = createShareButton<{
     windowWidth: 550,
     windowHeight: 400,
   },
-);
+)
 
-export default FacebookShareButton;
+export default FacebookShareButton

@@ -1,28 +1,15 @@
-import React from 'react';
+import React from 'react'
+import { SVGConfig, SVGProps } from '../types'
 
-type Props = Omit<React.SVGProps<SVGSVGElement>, 'width' | 'height'> & {
-  bgStyle?: React.CSSProperties;
-  borderRadius?: number;
-  iconFillColor?: string;
-  round?: boolean;
-  size?: number | string;
-};
-
-type Config = {
-  color: string;
-  name: string;
-  path: string;
-};
-
-export default function createIcon(config: Config) {
-  const Icon: React.FC<Props> = ({
+export default function createIcon(config: SVGConfig) {
+  const Icon: React.FC<SVGProps> = ({
     bgStyle = {},
     borderRadius = 0,
     iconFillColor = 'white',
     round,
     size = 64,
     ...rest
-  }: Props) => (
+  }: SVGProps) => (
     <svg viewBox="0 0 64 64" width={size} height={size} {...rest}>
       {round ? (
         <circle cx="32" cy="32" r="31" fill={config.color} style={bgStyle} />
@@ -39,7 +26,7 @@ export default function createIcon(config: Config) {
 
       <path d={config.path} fill={iconFillColor} />
     </svg>
-  );
+  )
 
-  return Icon;
+  return Icon
 }

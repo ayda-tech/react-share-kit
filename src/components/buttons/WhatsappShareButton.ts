@@ -1,38 +1,18 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
+import createShareButton from '../../hocs/createShareButton'
+import { WhatsAppLinkParams } from '../../types'
+import { whatsappLink } from '../../utils/button'
 
-function isMobileOrTablet() {
-  return /(android|iphone|ipad|mobile)/i.test(navigator.userAgent);
-}
-
-function whatsappLink(
-  url: string,
-  { title, separator }: { title?: string; separator?: string },
-) {
-  return (
-    'https://' +
-    (isMobileOrTablet() ? 'api' : 'web') +
-    '.whatsapp.com/send' +
-    transformObjectToParams({
-      text: title ? title + separator + url : url,
-    })
-  );
-}
-
-const WhatsappShareButton = createShareButton<{
-  title?: string;
-  separator?: string;
-}>(
+const WhatsappShareButton = createShareButton<WhatsAppLinkParams>(
   'whatsapp',
   whatsappLink,
-  (props) => ({
-    title: props.title,
-    separator: props.separator || ' ',
+  ({ title, separator }) => ({
+    title,
+    separator: separator || ' ',
   }),
   {
     windowWidth: 550,
     windowHeight: 400,
   },
-);
+)
 
-export default WhatsappShareButton;
+export default WhatsappShareButton

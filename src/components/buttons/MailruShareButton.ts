@@ -1,41 +1,19 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
+import createShareButton from '../../hocs/createShareButton'
+import { MailruLinkParams } from '../../types'
+import { mailruLink } from '../../utils/button'
 
-function mailruLink(
-  url: string,
-  {
+const MailruShareButton = createShareButton<MailruLinkParams>(
+  'mailru',
+  mailruLink,
+  ({ title, description, imageUrl }) => ({
     title,
     description,
     imageUrl,
-  }: { title?: string; description?: string; imageUrl?: string },
-) {
-  return (
-    'https://connect.mail.ru/share' +
-    transformObjectToParams({
-      url,
-      title,
-      description,
-      image_url: imageUrl,
-    })
-  );
-}
-
-const MailruShareButton = createShareButton<{
-  title?: string;
-  description?: string;
-  imageUrl?: string;
-}>(
-  'mailru',
-  mailruLink,
-  (props) => ({
-    title: props.title,
-    description: props.description,
-    imageUrl: props.imageUrl,
   }),
   {
     windowWidth: 660,
     windowHeight: 460,
   },
-);
+)
 
-export default MailruShareButton;
+export default MailruShareButton

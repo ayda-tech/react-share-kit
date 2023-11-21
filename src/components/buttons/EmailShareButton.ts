@@ -1,23 +1,8 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
+import createShareButton from '../../hocs/createShareButton'
+import { EmailLinkParams } from '../../types'
+import { emailLink } from '../../utils/button'
 
-type Options = {
-  body?: string;
-  separator?: string;
-  subject?: string;
-};
-
-function emailLink(url: string, { subject, body, separator }: Options) {
-  return (
-    'mailto:' +
-    transformObjectToParams({
-      subject,
-      body: body ? body + separator + url : url,
-    })
-  );
-}
-
-const EmailShareButton = createShareButton<Options>(
+const EmailShareButton = createShareButton<EmailLinkParams>(
   'email',
   emailLink,
   (props) => ({
@@ -28,9 +13,9 @@ const EmailShareButton = createShareButton<Options>(
   {
     openShareDialogOnClick: false,
     onClick: (_, link: string) => {
-      window.location.href = link;
+      window.location.href = link
     },
   },
-);
+)
 
-export default EmailShareButton;
+export default EmailShareButton

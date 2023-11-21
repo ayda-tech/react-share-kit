@@ -1,26 +1,17 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
+import createShareButton from '../../hocs/createShareButton'
+import { LineLinkParams } from '../../types'
+import { lineLink } from '../../utils/button'
 
-function lineLink(url: string, { title }: { title?: string }) {
-  return (
-    'https://social-plugins.line.me/lineit/share' +
-    transformObjectToParams({
-      url,
-      text: title,
-    })
-  );
-}
-
-const LineShareButton = createShareButton<{ title?: string }>(
+const LineShareButton = createShareButton<LineLinkParams>(
   'line',
   lineLink,
-  (props) => ({
-    title: props.title,
+  ({ title }) => ({
+    title,
   }),
   {
     windowWidth: 500,
     windowHeight: 500,
   },
-);
+)
 
-export default LineShareButton;
+export default LineShareButton

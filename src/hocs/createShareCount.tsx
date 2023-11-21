@@ -1,55 +1,38 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { SocialMediaShareCountProps, StateTypes } from '../types'
 
-const defaultChildren = (shareCount: number) => shareCount;
-
-type SocialMediaShareCountProps = React.HTMLAttributes<HTMLSpanElement> & {
-  children?: (shareCount: number) => React.ReactNode;
-  getCount: (
-    url: string,
-    callback: (shareCount?: number) => void,
-    appId?: string,
-    appSecret?: string,
-  ) => void;
-  url: string;
-  appId?: string;
-  appSecret?: string;
-};
-
-type StateTypes = {
-  count?: number;
-  isLoading: boolean;
-};
+const defaultChildren = (shareCount: number) => shareCount
 
 class SocialMediaShareCount extends Component<
   SocialMediaShareCountProps,
   StateTypes
 > {
-  _isMounted = false;
+  _isMounted = false
 
   constructor(props: SocialMediaShareCountProps) {
-    super(props);
-    this.state = { count: 0, isLoading: false };
+    super(props)
+    this.state = { count: 0, isLoading: false }
   }
 
   componentDidMount() {
-    this._isMounted = true;
-    this.updateCount(this.props.url, this.props.appId, this.props.appSecret);
+    this._isMounted = true
+    this.updateCount(this.props.url, this.props.appId, this.props.appSecret)
   }
 
   componentDidUpdate(prevProps: SocialMediaShareCountProps) {
     if (this.props.url !== prevProps.url) {
-      this.updateCount(this.props.url, this.props.appId, this.props.appSecret);
+      this.updateCount(this.props.url, this.props.appId, this.props.appSecret)
     }
   }
 
   componentWillUnmount() {
-    this._isMounted = false;
+    this._isMounted = false
   }
 
   updateCount(url: string, appId?: string, appSecret?: string) {
     this.setState({
       isLoading: true,
-    });
+    })
 
     this.props.getCount(
       url,
@@ -58,16 +41,16 @@ class SocialMediaShareCount extends Component<
           this.setState({
             count,
             isLoading: false,
-          });
+          })
         }
       },
       appId,
       appSecret,
-    );
+    )
   }
 
   render() {
-    const { count, isLoading } = this.state;
+    const { count, isLoading } = this.state
 
     const {
       children = defaultChildren,
@@ -76,13 +59,13 @@ class SocialMediaShareCount extends Component<
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       getCount: _,
       // ...rest
-    } = this.props;
+    } = this.props
 
     return (
       <span className={className} /* {...rest} */>
         {!isLoading && count !== undefined && children(count)}
       </span>
-    );
+    )
   }
 }
 
@@ -91,9 +74,9 @@ export default function createShareCount(
 ) {
   const ShareCount = (props: Omit<SocialMediaShareCountProps, 'getCount'>) => (
     <SocialMediaShareCount getCount={getCount} {...props} />
-  );
+  )
 
-  ShareCount.displayName = `ShareCount(${getCount.name})`;
+  ShareCount.displayName = `ShareCount(${getCount.name})`
 
-  return ShareCount;
+  return ShareCount
 }

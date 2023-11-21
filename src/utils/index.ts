@@ -1,3 +1,7 @@
+export function isMobileOrTablet() {
+  return /(android|iphone|ipad|mobile)/i.test(navigator.userAgent)
+}
+
 export function CustomWindow(
   url: string,
   {
@@ -21,12 +25,12 @@ export function CustomWindow(
     centerscreen: 'yes',
     chrome: 'yes',
     ...configRest,
-  };
+  }
 
-  let dialog: Window;
+  let dialog: Window
 
   if (blankTarget) {
-    dialog = <Window>window.open(url, '_blank');
+    dialog = <Window>window.open(url, '_blank')
   } else {
     dialog = <Window>window.open(
       url,
@@ -34,25 +38,25 @@ export function CustomWindow(
       Object.keys(config)
         .map((key) => `${key}=${config[key]}`)
         .join(', '),
-    );
+    )
   }
 
   if (onClose) {
     const interval = window.setInterval(() => {
       try {
         if (dialog === null || dialog.closed) {
-          window.clearInterval(interval);
-          onClose(dialog);
+          window.clearInterval(interval)
+          onClose(dialog)
         }
       } catch (e) {
         /* eslint-disable no-console */
-        console.error(e);
+        console.error(e)
         /* eslint-enable no-console */
       }
-    }, 1000);
+    }, 1000)
   }
 
-  return dialog;
+  return dialog
 }
 
 export const getPositionOnWindowCenter = (width: number, height: number) => ({
@@ -64,27 +68,27 @@ export const getPositionOnWindowCenter = (width: number, height: number) => ({
     window.outerHeight / 2 +
     (window.screenY || window.screenTop || 0) -
     height / 2,
-});
+})
 
 export const getPositionOnScreenCenter = (width: number, height: number) => ({
   top: (window.screen.height - height) / 2,
   left: (window.screen.width - width) / 2,
-});
+})
 
 export const isPromise = (obj: any | Promise<any>) =>
   !!obj &&
   (typeof obj === 'object' || typeof obj === 'function') &&
-  typeof obj.then === 'function';
+  typeof obj.then === 'function'
 
 export default function transformObjectToParams(object: {
-  [key: string]: string | number | undefined | null;
+  [key: string]: string | number | undefined | null
 }) {
   const params = Object.entries(object)
     .filter(([, value]) => value !== undefined && value !== null)
     .map(
       ([key, value]) =>
         `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`,
-    );
+    )
 
-  return params.length > 0 ? `?${params.join('&')}` : '';
+  return params.length > 0 ? `?${params.join('&')}` : ''
 }

@@ -1,21 +1,8 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
+import createShareButton from '../../hocs/createShareButton'
+import { LinkedInLinkParams } from '../../types'
+import { linkedinLink } from '../../utils/button'
 
-type Options = {
-  title?: string;
-  summary?: string;
-  source?: string;
-};
-
-function linkedinLink(url: string, { title, summary, source }: Options) {
-  return (
-    // 'https://linkedin.com/shareArticle' +
-    'https://linkedin.com/sharing/share-offsite' +
-    transformObjectToParams({ url, mini: 'true', title, summary, source })
-  );
-}
-
-const LinkedinShareButton = createShareButton<Options>(
+const LinkedinShareButton = createShareButton<LinkedInLinkParams>(
   'linkedin',
   linkedinLink,
   ({ title, summary, source }) => ({ title, summary, source }),
@@ -23,6 +10,6 @@ const LinkedinShareButton = createShareButton<Options>(
     windowWidth: 750,
     windowHeight: 600,
   },
-);
+)
 
-export default LinkedinShareButton;
+export default LinkedinShareButton

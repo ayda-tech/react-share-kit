@@ -1,26 +1,17 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
+import createShareButton from '../../hocs/createShareButton'
+import { TelegramLinkParams } from '../../types'
+import { telegramLink } from '../../utils/button'
 
-function telegramLink(url: string, { title }: { title?: string }) {
-  return (
-    'https://telegram.me/share/' +
-    transformObjectToParams({
-      url,
-      text: title,
-    })
-  );
-}
-
-const TelegramShareButton = createShareButton<{ title?: string }>(
+const TelegramShareButton = createShareButton<TelegramLinkParams>(
   'telegram',
   telegramLink,
-  (props) => ({
-    title: props.title,
+  ({ title }) => ({
+    title,
   }),
   {
     windowWidth: 550,
     windowHeight: 400,
   },
-);
+)
 
-export default TelegramShareButton;
+export default TelegramShareButton

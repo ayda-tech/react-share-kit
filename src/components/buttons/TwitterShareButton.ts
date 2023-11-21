@@ -1,45 +1,20 @@
-import transformObjectToParams from '../../utils';
-import createShareButton from '../../hocs/createShareButton';
+import createShareButton from '../../hocs/createShareButton'
+import { TwitterLinkParams } from '../../types'
+import { twitterLink } from '../../utils/button'
 
-function twitterLink(
-  url: string,
-  {
-    title,
-    via,
-    hashtags = [],
-    related = [],
-  }: { title?: string; via?: string; hashtags?: string[]; related?: string[] },
-) {
-  return (
-    'https://twitter.com/intent/tweet' +
-    transformObjectToParams({
-      url,
-      text: title,
-      via,
-      hashtags: hashtags.length > 0 ? hashtags.join(',') : undefined,
-      related: related.length > 0 ? related.join(',') : undefined,
-    })
-  );
-}
-
-const TwitterShareButton = createShareButton<{
-  title?: string;
-  via?: string;
-  hashtags?: string[];
-  related?: string[];
-}>(
+const TwitterShareButton = createShareButton<TwitterLinkParams>(
   'twitter',
   twitterLink,
-  (props) => ({
-    hashtags: props.hashtags,
-    title: props.title,
-    via: props.via,
-    related: props.related,
+  ({ title, via, related, hashtags }) => ({
+    hashtags,
+    title,
+    via,
+    related,
   }),
   {
     windowWidth: 550,
     windowHeight: 400,
   },
-);
+)
 
-export default TwitterShareButton;
+export default TwitterShareButton
