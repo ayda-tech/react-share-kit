@@ -1,5 +1,7 @@
 //=============LINK TYPES
 
+import { CSSProperties, Ref } from 'react'
+
 // Email Link: TYPE
 export type EmailLinkParams = {
   body?: string
@@ -78,24 +80,6 @@ export type WorkplaceLinkParams = {
 }
 
 //======= HOC TYPES
-export type SVGConfig = {
-  color: string
-  name: string
-  path: string
-}
-
-export type SVGProps = Omit<
-  React.SVGProps<SVGSVGElement>,
-  'width' | 'height'
-> & {
-  bgColor?: string
-  style?: React.CSSProperties
-  borderRadius?: number
-  iconFillColor?: string
-  round?: boolean
-  size?: number | string
-}
-
 export type SocialMediaShareCountProps =
   React.HTMLAttributes<HTMLSpanElement> & {
     children?: (shareCount: number) => React.ReactNode
@@ -124,4 +108,57 @@ type SocialIcon = {
 
 type SocialIcons = {
   [key: string]: SocialIcon
+}
+
+//======= SOCIAL SHARE TYPES
+
+export type NetworkLink<LinkOptions> = (
+  url: string,
+  options: LinkOptions,
+) => string
+
+export type WindowPosition = 'windowCenter' | 'screenCenter'
+
+export type CustomProps<LinkOptions> = {
+  buttonTitle?: string
+  /**
+   * Disables click action and adds `disabled` class
+   */
+  disabled?: boolean
+  /**
+   * Style when button is disabled
+   * @default { opacity: 0.6 }
+   */
+  disabledStyle?: React.CSSProperties
+  forwardedRef?: Ref<HTMLButtonElement>
+  networkName: string
+  networkLink: NetworkLink<LinkOptions>
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>, link: string) => void
+  openShareDialogOnClick?: boolean
+  opts: LinkOptions
+  /**
+   * URL of the shared page
+   */
+  url: string
+  style?: React.CSSProperties
+  windowWidth?: number
+  windowHeight?: number
+  windowPosition?: WindowPosition
+  /**
+   *  Takes a function that returns a Promise to be fulfilled before calling
+   * `onClick`. If you do not return promise, `onClick` is called immediately.
+   */
+  beforeOnClick?: () => Promise<void> | void
+  /**
+   * Takes a function to be called after closing share dialog.
+   */
+  onShareWindowClose?: () => void
+  resetButtonStyle?: boolean
+  blankTarget?: boolean
+  size?: number
+  round?: boolean
+  borderRadius?: number
+  iconStyle?: CSSProperties
+  iconFillColor?: string
+  bgColor?: string
 }

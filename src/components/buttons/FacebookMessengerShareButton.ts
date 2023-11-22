@@ -4,7 +4,7 @@ import { facebookMessengerLink } from '../../utils/button'
 
 const FacebookMessengerShareButton =
   createShareButton<FacebookMessengerLinkParams>(
-    'facebookMessenger',
+    'facebookmessenger',
     facebookMessengerLink,
     ({ appId, redirectUri, to }) => ({
       appId,
