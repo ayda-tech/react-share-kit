@@ -1,60 +1,14 @@
-import React, { CSSProperties, Component, Ref } from 'react'
+import React, { Component } from 'react'
 import {
   CustomWindow,
   getPositionOnWindowCenter,
   getPositionOnScreenCenter,
   isPromise,
 } from '../utils'
-import createIcon from '../hocs/createIcon'
+
 import icons from '../constant/icons'
 
-type NetworkLink<LinkOptions> = (url: string, options: LinkOptions) => string
-
-type WindowPosition = 'windowCenter' | 'screenCenter'
-
-interface CustomProps<LinkOptions> {
-  children?: React.ReactNode
-  /**
-   * Disables click action and adds `disabled` class
-   */
-  disabled?: boolean
-  /**
-   * Style when button is disabled
-   * @default { opacity: 0.6 }
-   */
-  disabledStyle?: React.CSSProperties
-  forwardedRef?: Ref<HTMLButtonElement>
-  networkName: string
-  networkLink: NetworkLink<LinkOptions>
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>, link: string) => void
-  openShareDialogOnClick?: boolean
-  opts: LinkOptions
-  /**
-   * URL of the shared page
-   */
-  url: string
-  style?: React.CSSProperties
-  windowWidth?: number
-  windowHeight?: number
-  windowPosition?: WindowPosition
-  /**
-   *  Takes a function that returns a Promise to be fulfilled before calling
-   * `onClick`. If you do not return promise, `onClick` is called immediately.
-   */
-  beforeOnClick?: () => Promise<void> | void
-  /**
-   * Takes a function to be called after closing share dialog.
-   */
-  onShareWindowClose?: () => void
-  resetButtonStyle?: boolean
-  blankTarget?: boolean
-  size?: number
-  round?: boolean
-  borderRadius?: number
-  iconStyle?: CSSProperties
-  iconFillColor?: string
-  bgColor?: string
-}
+import { CustomProps } from '../types'
 
 export type Props<LinkOptions> = Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -133,11 +87,13 @@ export default class SocialShareButton<LinkOptions> extends Component<
       forwardedRef,
       networkName,
       style,
-      size,
       round,
       bgColor,
+      size = 64,
       iconStyle,
-      iconFillColor,
+      borderRadius = 0,
+      iconFillColor = 'white',
+      buttonTitle,
       ...rest
     } = this.props
 
@@ -152,7 +108,7 @@ export default class SocialShareButton<LinkOptions> extends Component<
       ...style,
     }
 
-    const Icon = createIcon(icons[networkName])
+    const icon = icons[networkName]
 
     return (
       <button
@@ -161,16 +117,31 @@ export default class SocialShareButton<LinkOptions> extends Component<
         ref={forwardedRef}
         style={newStyle}
       >
-        {children ? (
-          children
+        {buttonTitle ? (
+          buttonTitle
         ) : (
-          <Icon
-            size={size}
-            round={round}
-            style={iconStyle}
-            iconFillColor={iconFillColor}
-            bgColor={bgColor}
-          />
+          <svg viewBox="0 0 64 64" width={size} height={size}>
+            {round ? (
+              <circle
+                cx="32"
+                cy="32"
+                r="31"
+                fill={bgColor ?? icon.color}
+                style={style}
+              />
+            ) : (
+              <rect
+                width="64"
+                height="64"
+                rx={borderRadius}
+                ry={borderRadius}
+                fill={bgColor ?? icon.color}
+                style={style}
+              />
+            )}
+
+            <path d={icon.path} fill={iconFillColor} />
+          </svg>
         )}
       </button>
     )
