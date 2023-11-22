@@ -88,7 +88,8 @@ export type SVGProps = Omit<
   React.SVGProps<SVGSVGElement>,
   'width' | 'height'
 > & {
-  bgStyle?: React.CSSProperties
+  bgColor?: string
+  style?: React.CSSProperties
   borderRadius?: number
   iconFillColor?: string
   round?: boolean
@@ -112,4 +113,15 @@ export type SocialMediaShareCountProps =
 export type StateTypes = {
   count?: number
   isLoading: boolean
+}
+
+//======= ICON TYPES
+type SocialIcon = {
+  color: string
+  name: string
+  path: string
+}
+
+type SocialIcons = {
+  [key: string]: SocialIcon
 }

@@ -1,17 +1,19 @@
-import React, { Component, Ref } from 'react'
+import React, { CSSProperties, Component, Ref } from 'react'
 import {
   CustomWindow,
   getPositionOnWindowCenter,
   getPositionOnScreenCenter,
   isPromise,
 } from '../utils'
+import createIcon from '../hocs/createIcon'
+import icons from '../constant/icons'
 
 type NetworkLink<LinkOptions> = (url: string, options: LinkOptions) => string
 
 type WindowPosition = 'windowCenter' | 'screenCenter'
 
 interface CustomProps<LinkOptions> {
-  children: React.ReactNode
+  children?: React.ReactNode
   /**
    * Disables click action and adds `disabled` class
    */
@@ -46,6 +48,12 @@ interface CustomProps<LinkOptions> {
   onShareWindowClose?: () => void
   resetButtonStyle?: boolean
   blankTarget?: boolean
+  size?: number
+  round?: boolean
+  borderRadius?: number
+  iconStyle?: CSSProperties
+  iconFillColor?: string
+  bgColor?: string
 }
 
 export type Props<LinkOptions> = Omit<
@@ -120,7 +128,18 @@ export default class SocialShareButton<LinkOptions> extends Component<
   }
 
   render() {
-    const { children, forwardedRef, networkName, style, ...rest } = this.props
+    const {
+      children,
+      forwardedRef,
+      networkName,
+      style,
+      size,
+      round,
+      bgColor,
+      iconStyle,
+      iconFillColor,
+      ...rest
+    } = this.props
 
     const newStyle = {
       backgroundColor: 'transparent',
@@ -133,6 +152,8 @@ export default class SocialShareButton<LinkOptions> extends Component<
       ...style,
     }
 
+    const Icon = createIcon(icons[networkName])
+
     return (
       <button
         aria-label={rest['aria-label'] || networkName}
@@ -140,7 +161,17 @@ export default class SocialShareButton<LinkOptions> extends Component<
         ref={forwardedRef}
         style={newStyle}
       >
-        {children}
+        {children ? (
+          children
+        ) : (
+          <Icon
+            size={size}
+            round={round}
+            style={iconStyle}
+            iconFillColor={iconFillColor}
+            bgColor={bgColor}
+          />
+        )}
       </button>
     )
   }
