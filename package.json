@@ -1,6 +1,6 @@
 {
   "name": "react-share-kit",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Social media share buttons and share counts for React and Nextjs.",
   "scripts": {
     "build": "rollup -c",
@@ -11,7 +11,7 @@
     "predeploy": "cd docs && npm install && npm run build",
     "deploy": "gh-pages -d docs/build"
   },
-  "author": "Alireza Mohseni",
+  "author": "Ayda Tech",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.23.3",
