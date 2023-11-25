@@ -85,7 +85,7 @@ import {
 | windowHeight | number | 400 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -99,11 +99,11 @@ import {
 ```js
 import {
   LineShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <LineShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'next-share-kit is a social share buttons for your next React apps.'}
+  title={'react-share-kit is a social share buttons for your next React apps.'}
 />
 ```
 
@@ -119,7 +119,7 @@ import {
 | windowHeight | number | 500 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -132,11 +132,11 @@ import {
 ```js
 import {
   PinterestShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <PinterestShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  media={'next-share-kit is a social share buttons for your next React apps.'}
+  media={'react-share-kit is a social share buttons for your next React apps.'}
 />
 ```
 
@@ -153,11 +153,11 @@ import {
 | windowHeight | number | 730 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | 64px | The title of button used instead of icon. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -171,11 +171,11 @@ import {
 ```js
 import {
   RedditShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <RedditShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'next-share-kit is a social share buttons for your next React apps.'}
+  title={'react-share-kit is a social share buttons for your next React apps.'}
 />
 ```
 
@@ -191,7 +191,7 @@ import {
 | windowHeight | number | 460 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -204,11 +204,11 @@ import {
 ```js
 import {
   TelegramShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <TelegramShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'next-share-kit is a social share buttons for your next React apps.'}
+  title={'react-share-kit is a social share buttons for your next React apps.'}
 />
 ```
 
@@ -224,7 +224,7 @@ import {
 | windowHeight | number | 400 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -237,11 +237,11 @@ import {
 ```js
 import {
   TumblrShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <TumblrShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'next-share-kit is a social share buttons for your next React apps.'}
+  title={'react-share-kit is a social share buttons for your next React apps.'}
 />
 ```
 
@@ -260,7 +260,7 @@ import {
 | windowHeight | number | 460 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -273,11 +273,11 @@ import {
 ```js
 import {
   TwitterShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <TwitterShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'next-share-kit is a social share buttons for your next React apps.'}
+  title={'react-share-kit is a social share buttons for your next React apps.'}
 />
 ```
 
@@ -296,7 +296,7 @@ import {
 | windowHeight | number | 400 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -309,11 +309,11 @@ import {
 ```js
 import {
   ViberShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <ViberShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'next-share-kit is a social share buttons for your next React apps.'}
+  title={'react-share-kit is a social share buttons for your next React apps.'}
 />
 ```
 
@@ -330,7 +330,7 @@ import {
 | windowHeight | number | 460 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -343,11 +343,11 @@ import {
 ```js
 import {
   WeiboShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <WeiboShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'next-share-kit is a social share buttons for your next React apps.'}
+  title={'react-share-kit is a social share buttons for your next React apps.'}
   image={`${String(window.location)}/${example-image}`}
 />
 ```
@@ -365,7 +365,7 @@ import {
 | windowHeight | number | 550 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -378,11 +378,11 @@ import {
 ```js
 import {
   WhatsappShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <WhatsappShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'next-share-kit is a social share buttons for your next React apps.'}
+  title={'react-share-kit is a social share buttons for your next React apps.'}
   separator=":: "
 />
 ```
@@ -400,7 +400,7 @@ import {
 | windowHeight | number | 400 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -413,7 +413,7 @@ import {
 ```js
 import {
   LinkedinShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <LinkedinShareButton url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
@@ -429,7 +429,7 @@ import {
 | windowHeight | number | 600 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -442,11 +442,11 @@ import {
 ```js
 import {
   VKShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <VKShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  image={'./next-share.png'}
+  image={'./react-share.png'}
 />
 ```
 
@@ -465,7 +465,7 @@ import {
 | windowHeight | number | 460 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -478,11 +478,11 @@ import {
 ```js
 import {
   MailruShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <MailruShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'Next Share'}
+  title={'React Share Kit'}
 />
 ```
 
@@ -500,7 +500,7 @@ import {
 | windowHeight | number | 460 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -513,11 +513,11 @@ import {
 ```js
 import {
   LivejournalShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <LivejournalShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'Next Share'}
+  title={'React Share Kit'}
   description={'https://github.com/ayda-tech/react-share-kit'}
 />
 ```
@@ -535,7 +535,7 @@ import {
 | windowHeight | number | 460 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -548,11 +548,11 @@ import {
 ```js
 import {
   WorkplaceShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <WorkplaceShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  quote={'Next Share'}
+  quote={'React Share Kit'}
 />
 ```
 
@@ -569,7 +569,7 @@ import {
 | windowHeight | number | 400 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ ||
 
@@ -582,11 +582,11 @@ import {
 ```js
 import {
   PocketShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <PocketShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'Next Share'}
+  title={'React Share Kit'}
 />
 ```
 
@@ -602,7 +602,7 @@ import {
 | windowHeight | number | 500 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -615,11 +615,11 @@ import {
 ```js
 import {
   InstapaperShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <InstapaperShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'Next Share'}
+  title={'React Share Kit'}
 />
 ```
 
@@ -636,7 +636,7 @@ import {
 | windowHeight | number | 500 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -649,11 +649,11 @@ import {
 ```js
 import {
   HatenaShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <HatenaShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'Next Share'}
+  title={'React Share Kit'}
 />
 ```
 
@@ -669,7 +669,7 @@ import {
 | windowHeight | number | 460 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -682,7 +682,7 @@ import {
 ```js
 import {
   FacebookMessengerShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <FacebookMessengerShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
@@ -704,7 +704,7 @@ import {
 | windowHeight | number | 820 | Opened window height. | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -717,11 +717,11 @@ import {
 ```js
 import {
   EmailShareButton
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <EmailShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  subject={'Next Share'}
+  subject={'React Share Kit'}
   body="body"
 />
 ```
@@ -738,7 +738,7 @@ import {
 | separator | string |  |  | ❌ |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -751,11 +751,11 @@ import {
 ```js
 import {
   GabShareButton,
-} from 'next-share-kit'
+} from 'react-share-kit'
 
 <GabShareButton
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'Next Share'}
+  title={'React Share Kit'}
 />
 ```
 
@@ -770,7 +770,7 @@ import {
 | windowWidth | number | 660 | Opened window width. | ❌ |
 | windowHeight | number | 640 | Opened window height. | ❌ |
 | bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
 | size  | number | 64px | The button size. | ❌ |
 | buttonTitle  | string | | The title of button used instead of icon. | ❌ |
 
@@ -783,7 +783,7 @@ import {
 <h3> 👨‍💻 Code </h3>
 
 ```js
-import { FacebookShareCount } from 'next-share-kit'
+import { FacebookShareCount } from 'react-share-kit'
 
 <FacebookShareCount
   url='https://github.com/ayda-tech/react-share-kit'
@@ -817,7 +817,7 @@ import { FacebookShareCount } from 'next-share-kit'
 <h3> 👨‍💻 Code </h3>
 
 ```js
-import { HatenaShareCount } from 'next-share-kit'
+import { HatenaShareCount } from 'react-share-kit'
 
 <HatenaShareCount url={'https://github.com/ayda-tech/react-share-kit'} />
 
@@ -841,7 +841,7 @@ import { HatenaShareCount } from 'next-share-kit'
 <h3> 👨‍💻 Code </h3>
 
 ```js
-import { OKShareCount } from 'next-share-kit'
+import { OKShareCount } from 'react-share-kit'
 
 <OKShareCount url={'https://github.com/ayda-tech/react-share-kit'} />
 
@@ -865,7 +865,7 @@ import { OKShareCount } from 'next-share-kit'
 <h3> 👨‍💻 Code </h3>
 
 ```js
-import { PinterestShareCount } from 'next-share-kit'
+import { PinterestShareCount } from 'react-share-kit'
 
 <PinterestShareCount url={'https://github.com/ayda-tech/react-share-kit'} />
 
@@ -889,7 +889,7 @@ import { PinterestShareCount } from 'next-share-kit'
 <h3> 👨‍💻 Code </h3>
 
 ```js
-import { TumblrShareCount } from 'next-share-kit'
+import { TumblrShareCount } from 'react-share-kit'
 
 <TumblrShareCount url={'https://github.com/ayda-tech/react-share-kit'} />
 
@@ -913,7 +913,7 @@ import { TumblrShareCount } from 'next-share-kit'
 <h3> 👨‍💻 Code </h3>
 
 ```js
-import { VKShareCount } from 'next-share-kit'
+import { VKShareCount } from 'react-share-kit'
 
 <VKShareCount url={'https://github.com/ayda-tech/react-share-kit'} />
 

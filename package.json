@@ -1,18 +1,36 @@
 {
   "name": "react-share-kit",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Social media share buttons and share counts for React and Nextjs.",
   "scripts": {
     "build": "rollup -c",
     "prettier": "prettier --write './src/*.ts' './src/**/*.ts' './src/**/*.tsx' --config ./.prettierrc",
     "lint:check": "eslint ./src --ext .tsx,.ts --report-unused-disable-directives",
-    "dev": "rollup -c -w",
-    "prepare": "npm run build",
-    "predeploy": "cd docs && npm install && npm run build",
-    "deploy": "gh-pages -d docs/build"
+    "dev": "rollup -c -w"
   },
   "author": "Ayda Tech",
   "license": "MIT",
+  "keywords": [
+    "react-share-kit",
+    "social-count",
+    "social-button-count",
+    "social-count-buttons",
+    "react-share",
+    "next-share",
+    "social-share",
+    "share-button",
+    "sharing",
+    "share",
+    "social",
+    "button",
+    "react",
+    "nextjs",
+    "next.js support",
+    "component library",
+    "reactjs",
+    "social-share-buttons",
+    "social-media-share-buttons"
+  ],
   "devDependencies": {
     "@babel/core": "^7.23.3",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
