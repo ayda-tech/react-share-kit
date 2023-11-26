@@ -100,13 +100,13 @@ export type StateTypes = {
 }
 
 //======= ICON TYPES
-type SocialIcon = {
+export type SocialIcon = {
   color: string
   name: string
   path: string
 }
 
-type SocialIcons = {
+export type SocialIcons = {
   [key: string]: SocialIcon
 }
 
@@ -161,4 +161,13 @@ export type CustomProps<LinkOptions> = {
   iconStyle?: CSSProperties
   iconFillColor?: string
   bgColor?: string
+}
+
+export type IconProps = {
+  network: string
+  color?: React.CSSProperties['color']
+  background?: React.CSSProperties['backgroundColor']
+  round?: boolean
+  size?: number
+  borderRadius?: React.CSSProperties['borderRadius']
 }

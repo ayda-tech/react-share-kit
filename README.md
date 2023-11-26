@@ -1,42 +1,49 @@
-# React-Share-Kit
 
+<center>
+
+### React-Share-Kit 
 React-Share-Kit is a simple and easy-to-use library for adding social media share buttons to your React & Next applications. With React-Share-Kit, you can quickly integrate share buttons for popular social media platforms such as Facebook, Twitter, LinkedIn, and more.
 
-## Table of Contents
-- [React-Share-Kit](#react-share-kit)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [💡 Usage of ShareButtons](#-usage-of-sharebuttons)
-    - [Facebook](#facebook)
-    - [Line](#line)
-    - [Pinterest](#pinterest)
-    - [Reddit](#reddit)
-    - [Telegram](#telegram)
-    - [Tumblr](#tumblr)
-    - [Twitter](#twitter)
-    - [Viber](#viber)
-    - [Weibo](#weibo)
-    - [Whatsapp](#whatsapp)
-    - [Linkedin](#linkedin)
-    - [VK](#vk)
-    - [Mailru](#mailru)
-    - [Livejournal](#livejournal)
-    - [Workplace](#workplace)
-    - [Pocket](#pocket)
-    - [Instapaper](#instapaper)
-    - [Hatena](#hatena)
-    - [FacebookMessenger](#facebookmessenger)
-    - [Email](#email)
-    - [Gab](#gab)
-  - [💡 Usage of ShareCount](#-usage-of-sharecount)
-    - [Facebook](#facebook-1)
-    - [Hatena](#hatena-1)
-    - [OK](#ok)
-    - [Pinterest](#pinterest-1)
-    - [Tumblr](#tumblr-1)
-    - [VK](#vk-1)
-  - [**Documentation**](#documentation)
-  - [License](#license)
+[![downloads](https://img.shields.io/npm/dm/react-share-kit.svg?label=monthly%20downloads)](https://www.npmjs.com/package/react-share-kit) [![downloads](https://img.shields.io/npm/dt/react-share-kit.svg?label=total%20downloads)](https://www.npmjs.com/package/react-share-kit)
+
+[![NPM](https://img.shields.io/npm/v/react-share-kit.svg)](https://www.npmjs.com/package/react-share-kit) ![npm bundle size](https://img.shields.io/bundlephobia/min/react-share-kit) [![Build Status](https://api.travis-ci.com/Bunlong/react-share-kit.svg?branch=master)](https://travis-ci.com/Bunlong/react-share-kit) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+</center>
+
+---
+
+### Table of Contents
+- [Installation](#installation)
+- [🔥 Share Buttons Detault Props](#-share-buttons-detault-props)
+- [💡 Usage of ShareButtons](#-usage-of-sharebuttons)
+  - [Linkedin](#linkedin)
+  - [Twitter](#twitter)
+  - [Facebook](#facebook)
+  - [FacebookMessenger](#facebookmessenger)
+  - [Whatsapp](#whatsapp)
+  - [Telegram](#telegram)
+  - [Line](#line)
+  - [Pinterest](#pinterest)
+  - [Reddit](#reddit)
+  - [Tumblr](#tumblr)
+  - [Viber](#viber)
+  - [Weibo](#weibo)
+  - [VK](#vk)
+  - [Mailru](#mailru)
+  - [LiveJournal](#livejournal)
+  - [Workplace](#workplace)
+  - [Pocket](#pocket)
+  - [Instapaper](#instapaper)
+  - [Hatena](#hatena)
+  - [Gab](#gab)
+- [💡 Usage of ShareCount](#-usage-of-sharecount)
+  - [Facebook](#facebook-1)
+  - [Hatena](#hatena-1)
+  - [OK](#ok)
+  - [Pinterest](#pinterest-1)
+  - [Tumblr](#tumblr-1)
+  - [VK](#vk-1)
+- [License](#license)
 
 ## Installation
 
@@ -52,632 +59,106 @@ or
 yarn add react-share-kit
 ```
 
+## 🔥 Share Buttons Detault Props
+
+To use React-Share-Kit in your React application, import the necessary components and pass the relevant props to customize the share buttons. For example:
+
+👨‍💻 <b>Example</b> 
+
+```jsx
+import React from 'react';
+import { FacebookShare, TwitterShare } from 'react-share-kit';
+
+const ShareButtons = () => {
+  const shareUrl = 'https://example.com';
+  const title = 'Check out this awesome website!';
+
+  return (
+      <FacebookShare url={shareUrl} quote={title} />
+      <TwitterShare url={shareUrl} round title="X" />
+  );
+};
+```
+📕 <b>Default Props</b>
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| url | string |  | The URL of the shared page. | TRUE |
+| title | string |  | The title of the shared page. | FALSE |
+| windowWidth | number | 550 | Opened window width. | FALSE |
+| windowHeight | number | 400 | Opened window height. | FALSE |
+| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | FALSE |
+| bgColor | string | related color | Icon background color. | FALSE |
+| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | FALSE |
+| borderRadius  | number | 0px | Custom round share. | FALSE |
+| size  | number | 64px | The button size. | FALSE |
+| buttonTitle  | string | | The title of button used instead of icon. | FALSE |
+
+
 ## 💡 Usage of ShareButtons
-
-### Facebook
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  FacebookShareButton
-} from 'react-share-kit'
-
-<FacebookShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  quote={'react-share-kit is a social share buttons for your next React apps.'}
-  hashtag={'#ReachShareKit'}
-  round
-/>
-
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| quote | string |  | A quote to be shared. | ❌ |
-| hashtag | string |  | Hashtag to be shared. | ❌ |
-| windowWidth | number | 550 | Opened window width. | ❌ |
-| windowHeight | number | 400 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
-
-
-### Line
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  LineShareButton
-} from 'react-share-kit'
-
-<LineShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'react-share-kit is a social share buttons for your next React apps.'}
-/>
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | The title of the shared page. | ❌ |
-| windowWidth | number | 500 | Opened window width. | ❌ |
-| windowHeight | number | 500 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
-
-###  Pinterest
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  PinterestShareButton
-} from 'react-share-kit'
-
-<PinterestShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  media={'react-share-kit is a social share buttons for your next React apps.'}
-/>
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| media | string |  | The image URL that will be pinned. | ✅ |
-| description | string |  | The description of the shared media. | ❌ |
-| windowWidth | number | 1000 | Opened window width. | ❌ |
-| windowHeight | number | 730 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | 64px | The title of button used instead of icon. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
-
-
-###  Reddit
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  RedditShareButton
-} from 'react-share-kit'
-
-<RedditShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'react-share-kit is a social share buttons for your next React apps.'}
-/>
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | The title of the shared page. | ❌ |
-| windowWidth | number | 660 | Opened window width. | ❌ |
-| windowHeight | number | 460 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
-
-###  Telegram
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  TelegramShareButton
-} from 'react-share-kit'
-
-<TelegramShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'react-share-kit is a social share buttons for your next React apps.'}
-/>
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | The title of the shared page. | ❌ |
-| windowWidth | number | 550 | Opened window width. | ❌ |
-| windowHeight | number | 400 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
-
-###  Tumblr
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  TumblrShareButton
-} from 'react-share-kit'
-
-<TumblrShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'react-share-kit is a social share buttons for your next React apps.'}
-/>
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | The title of the shared page. | ❌ |
-| tags | <code>Array&lt;string&gt;</code> |  |  | ❌ |
-| caption | string |  | The description of the shared page. | ❌ |
-| posttype | string | <code>link</code> |  | ❌ |
-| windowWidth | number | 660 | Opened window width. | ❌ |
-| windowHeight | number | 460 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
-
-###  Twitter
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  TwitterShareButton
-} from 'react-share-kit'
-
-<TwitterShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'react-share-kit is a social share buttons for your next React apps.'}
-/>
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | The title of the shared page. | ❌ |
-| via | string |  |  | ❌ |
-| hashtags | array |  |  | ❌ |
-| related | array |  |  | ❌ |
-| windowWidth | number | 550 | Opened window width. | ❌ |
-| windowHeight | number | 400 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
-
-###  Viber
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  ViberShareButton
-} from 'react-share-kit'
-
-<ViberShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'react-share-kit is a social share buttons for your next React apps.'}
-/>
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | The title of the shared page. | ❌ |
-| separator |  |  |  | ❌ |
-| windowWidth | number | 660 | Opened window width. | ❌ |
-| windowHeight | number | 460 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
-
-###  Weibo
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  WeiboShareButton
-} from 'react-share-kit'
-
-<WeiboShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'react-share-kit is a social share buttons for your next React apps.'}
-  image={`${String(window.location)}/${example-image}`}
-/>
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | The title of the shared page. | ❌ |
-| image | string |  | The image URL that will be shared. | ❌ |
-| windowWidth | number | 660 | Opened window width. | ❌ |
-| windowHeight | number | 550 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
-
-###  Whatsapp
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  WhatsappShareButton
-} from 'react-share-kit'
-
-<WhatsappShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'react-share-kit is a social share buttons for your next React apps.'}
-  separator=":: "
-/>
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | The title of the shared page. | ❌ |
-| separator | string |  |  | ❌ |
-| windowWidth | number | 550 | Opened window width. | ❌ |
-| windowHeight | number | 400 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
 
 ###  Linkedin
 
-<h3> 👨‍💻 Code </h3>
+👨‍💻 <b>Example</b> 
 
 ```js
 import {
-  LinkedinShareButton
+  LinkedinShare
 } from 'react-share-kit'
 
-<LinkedinShareButton url={'https://github.com/ayda-tech/react-share-kit'} />
+<LinkedinShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
 
-<details>
-<summary>📖 Props</summary>
+###  Twitter
 
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| windowWidth | number | 750 | Opened window width. | ❌ |
-| windowHeight | number | 600 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
-
-###  VK
-
-<h3> 👨‍💻 Code </h3>
+👨‍💻 <b>Example</b> 
 
 ```js
 import {
-  VKShareButton
+  TwitterShare
 } from 'react-share-kit'
 
-<VKShareButton
+<TwitterShare
   url={'https://github.com/ayda-tech/react-share-kit'}
-  image={'./react-share.png'}
+  title={'react-share-kit - social share buttons for next & react apps.'}
+  hashtags=["#react-share-kit", "#front-end"]
 />
 ```
-
-<details>
-<summary>📖 Props</summary>
+📕 <b>Props</b>
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | The title of the shared page. | ❌ |
-| image | string |  | An absolute link to the image that will be shared. | ❌ |
-| noParse | boolean |  | If true is passed, VK will not retrieve URL information. | ❌ |
-| noVkLinks | boolean |  | If true is passed, there will be no links to the user's profile in the open window. Only for mobile devices. | ❌ |
-| windowWidth | number | 660 | Opened window width. | ❌ |
-| windowHeight | number | 460 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
+| via | string |  |  | FALSE |
+| hashtags | array |  |  | FALSE |
+| related | array |  |  | FALSE |
 
-</details>
+### Facebook
 
-###  Mailru
-
-<h3> 👨‍💻 Code </h3>
+👨‍💻 <b>Example</b> 
 
 ```js
 import {
-  MailruShareButton
+  FacebookShare
 } from 'react-share-kit'
 
-<MailruShareButton
+<FacebookShare
   url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'React Share Kit'}
+  quote={'react-share-kit - social share buttons for next & react apps.'}
+  hashtag={'#react-share-kit'}
 />
+
 ```
 
-<details>
-<summary>📖 Props</summary>
+📕 <b>Props</b>
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | The title of the shared page. | ❌ |
-| description | string |  | Description of the shared page. | ❌ |
-| imageUrl | string |  | Image url of the shared page. | ❌ |
-| windowWidth | number | 660 | Opened window width. | ❌ |
-| windowHeight | number | 460 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
-
-###  Livejournal
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  LivejournalShareButton
-} from 'react-share-kit'
-
-<LivejournalShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'React Share Kit'}
-  description={'https://github.com/ayda-tech/react-share-kit'}
-/>
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | The title of the shared page. | ❌ |
-| description | string |  | Description of the shared page. | ❌ |
-| windowWidth | number | 660 | Opened window width. | ❌ |
-| windowHeight | number | 460 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
-
-###  Workplace
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  WorkplaceShareButton
-} from 'react-share-kit'
-
-<WorkplaceShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  quote={'React Share Kit'}
-/>
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| quote | string |  |  | ❌ |
-| hashtag | string |  |  | ❌ |
-| windowWidth | number | 550 | Opened window width. | ❌ |
-| windowHeight | number | 400 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ ||
-
-</details>
-
-###  Pocket
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  PocketShareButton
-} from 'react-share-kit'
-
-<PocketShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'React Share Kit'}
-/>
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | Title of the shared page. Note that if Pocket detects a title tag on the page being saved, this parameter will be ignored and the title tag of the saved page will be used instead. | ❌ |
-| windowWidth | number | 500 | Opened window width. | ❌ |
-| windowHeight | number | 500 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
-
-###  Instapaper
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  InstapaperShareButton
-} from 'react-share-kit'
-
-<InstapaperShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'React Share Kit'}
-/>
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | Title of the shared page. | ❌ |
-| description | string |  | Description of the shared page. | ❌ |
-| windowWidth | number | 500 | Opened window width. | ❌ |
-| windowHeight | number | 500 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
-
-###  Hatena
-
-<h3> 👨‍💻 Code </h3>
-
-```js
-import {
-  HatenaShareButton
-} from 'react-share-kit'
-
-<HatenaShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'React Share Kit'}
-/>
-```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | Title of the shared page. | ❌ |
-| windowWidth | number | 660 | Opened window width. | ❌ |
-| windowHeight | number | 460 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
+| quote | string |  | A quote to be shared. | FALSE |
+| hashtag | string |  | Hashtag to be shared. | FALSE |
 
 ###  FacebookMessenger
 
-<h3> 👨‍💻 Code </h3>
+👨‍💻 <b>Example</b> 
 
 ```js
 import {
@@ -685,272 +166,442 @@ import {
 } from 'react-share-kit'
 
 <FacebookMessengerShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  appId={''}
+  url='https://github.com/ayda-tech/react-share-kit'
+  redirectUri="https://github.com/ayda-tech/react-share-kit"
+  appId={'dmm4kj9djk203k4liuf994p'}
 />
 ```
 
-<details>
-<summary>📖 Props</summary>
+📕 <b>Props</b>
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| appId | string |  | Facebook application id. | ✅ |
-| redirectUri | string |  | The URL to redirect to after sharing (default: the shared url). | ❌ |
-| to | string |  | A user ID of a recipient. Once the dialog comes up, the sender can specify additional people as recipients. | ❌ |
-| windowWidth | number | 1000 | Opened window width. | ❌ |
-| windowHeight | number | 820 | Opened window height. | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
+| appId | string |  | Facebook application id. | TRUE |
+| redirectUri | string |  | The URL to redirect to after sharing (default: the shared url). | FALSE |
+| to | string |  | A user ID of a recipient. Once the dialog comes up, the sender can specify additional people as recipients. | FALSE |
 
-</details>
+###  Whatsapp
 
-###  Email
-
-<h3> 👨‍💻 Code </h3>
+👨‍💻 <b>Example</b> 
 
 ```js
 import {
-  EmailShareButton
+  WhatsappShare
 } from 'react-share-kit'
 
-<EmailShareButton
+<WhatsappShare
   url={'https://github.com/ayda-tech/react-share-kit'}
-  subject={'React Share Kit'}
-  body="body"
+  title={'react-share-kit - social share buttons for next & react apps.'}
+  separator=":: "
 />
 ```
 
-<details>
-<summary>📖 Props</summary>
+📕 <b>Props</b>
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| subject | string |  |  | ❌ |
-| body | string |  |  | ❌ |
-| separator | string |  |  | ❌ |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
+| separator | string |  |  | FALSE |
 
-</details>
+
+###  Telegram
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  TelegramShare
+} from 'react-share-kit'
+
+<TelegramShare url={'https://github.com/ayda-tech/react-share-kit'} />
+```
+
+### Line
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  LineShare
+} from 'react-share-kit'
+
+<LineShare url={'https://github.com/ayda-tech/react-share-kit'} />
+```
+
+###  Pinterest
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  PinterestShare
+} from 'react-share-kit'
+
+<PinterestShare
+  url={'https://github.com/ayda-tech/react-share-kit'}
+  media={'react-share-kit - social share buttons for next & react apps.'}
+/>
+```
+📕 <b>Props</b>
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| media | string |  | The image URL that will be pinned. | TRUE |
+| description | string |  | The description of the shared media. | FALSE |
+
+###  Reddit
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  RedditShare
+} from 'react-share-kit'
+
+<RedditShare url={'https://github.com/ayda-tech/react-share-kit'} />
+```
+
+###  Tumblr
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  TumblrShare
+} from 'react-share-kit'
+
+<TumblrShare
+  url={'https://github.com/ayda-tech/react-share-kit'}
+  caption="react-share-kit - social share buttons for next & react apps."
+/>
+```
+
+📕 <b>Props</b>
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| tags | <code>Array&lt;string&gt;</code> |  |  | FALSE |
+| caption | string |  | The description of the shared page. | FALSE |
+| posttype | string | <code>link</code> |  | FALSE |
+
+###  Viber
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  ViberShare
+} from 'react-share-kit'
+
+<ViberShare
+  url={'https://github.com/ayda-tech/react-share-kit'}
+  title={'react-share-kit - social share buttons for next & react apps.'}
+/>
+```
+
+📕 <b>Props</b>
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| separator | string |  |  | FALSE |
+
+###  Weibo
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  WeiboShare
+} from 'react-share-kit'
+
+<WeiboShare
+  url={'https://github.com/ayda-tech/react-share-kit'}
+  title={'react-share-kit - social share buttons for next & react apps.'}
+  image={`${String(window.location)}/${example-image}`}
+/>
+```
+
+📕 <b>Props</b>
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| image | string |  | The image URL that will be shared. | FALSE |
+
+###  VK
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  VKShare
+} from 'react-share-kit'
+
+<VKShare
+  url={'https://github.com/ayda-tech/react-share-kit'}
+  image={'./react-share.png'}
+/>
+```
+
+📕 <b>Props</b>
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| image | string |  | An absolute link to the image that will be shared. | FALSE |
+| noParse | boolean |  | If true is passed, VK will not retrieve URL information. | FALSE |
+| noVkLinks | boolean |  | If true is passed, there will be no links to the user's profile in the open window. Only for mobile devices. | FALSE |
+
+###  Mailru
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  MailruShare
+} from 'react-share-kit'
+
+<MailruShare url={'https://github.com/ayda-tech/react-share-kit'} />
+```
+
+📕 <b>Props</b>
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| description | string |  | Description of the shared page. | FALSE |
+| imageUrl | string |  | Image url of the shared page. | FALSE |
+
+###  LiveJournal
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  LiveJournalShare
+} from 'react-share-kit'
+
+<LiveJournalShare url={'https://github.com/ayda-tech/react-share-kit'} />
+```
+
+📕 <b>Props</b>
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| description | string |  | Description of the shared page. | FALSE |
+
+###  Workplace
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  WorkplaceShare
+} from 'react-share-kit'
+
+<WorkplaceShare
+  url={'https://github.com/ayda-tech/react-share-kit'}
+  quote={'React Share Kit'}
+/>
+```
+
+📕 <b>Props</b>
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| quote | string |  |  | FALSE |
+| hashtag | string |  |  | FALSE |
+
+###  Pocket
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  PocketShare
+} from 'react-share-kit'
+
+<PocketShare url={'https://github.com/ayda-tech/react-share-kit' />
+```
+
+###  Instapaper
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  InstapaperShare
+} from 'react-share-kit'
+
+<InstapaperShare url={'https://github.com/ayda-tech/react-share-kit'} />
+```
+
+📕 <b>Props</b>
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| description | string |  | Description of the shared page. | FALSE |
+
+###  Hatena
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  HatenaShareButton
+} from 'react-share-kit'
+
+<HatenaShare url={'https://github.com/ayda-tech/react-share-kit' />
+```
 
 ###  Gab
 
-<h3> 👨‍💻 Code </h3>
+👨‍💻 <b>Example</b> 
 
 ```js
 import {
-  GabShareButton,
+  GabShare
 } from 'react-share-kit'
 
-<GabShareButton
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'React Share Kit'}
-/>
+<GabShare url={'https://github.com/ayda-tech/react-share-kit'} />
+
 ```
-
-<details>
-<summary>📖 Props</summary>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | ✅ |
-| url | string |  | The URL of the shared page. | ✅ |
-| title | string |  | Title of the shared page. | ❌ |
-| windowWidth | number | 660 | Opened window width. | ❌ |
-| windowHeight | number | 640 | Opened window height. | ❌ |
-| bgColor | string | related color | It used for button background color. | ❌ |
-| round | boolean | false | The "round" attribute creates a fully circular button shape, giving it a 100% rounded appearance. | ❌ |
-| size  | number | 64px | The button size. | ❌ |
-| buttonTitle  | string | | The title of button used instead of icon. | ❌ |
-
-</details>
 
 ## 💡 Usage of ShareCount
 
 ###  Facebook
 
-<h3> 👨‍💻 Code </h3>
+👨‍💻 <b>Example</b> 
 
 ```js
-import { FacebookShareCount } from 'react-share-kit'
+import { FacebookCount } from 'react-share-kit'
 
-<FacebookShareCount
+<FacebookCount
   url='https://github.com/ayda-tech/react-share-kit'
   appId=''
   appSecret=''
 />
 
-<FacebookShareCount
+<FacebookCount
   url='https://github.com/ayda-tech/react-share-kit'
   appId=''
   appSecret=''
 >
   {shareCount => <span className="wrapper">{shareCount}</span>}
-</FacebookShareCount>
+</FacebookCount>
 ```
 
-<details>
-<summary>📖 Props</summary>
+📕 <b>Props</b>
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
-| url | string |  | The URL of the shared page. | ✅ |
-| appId | string |  | Facebook application id. | ✅ |
-| appSecret | string |  | Facebook application secret. | ✅ |
-| children | node |  | React component, HTML element or string. | ❌ |
-
-</details>
+| url | string |  | The URL of the shared page. | TRUE |
+| appId | string |  | Facebook application id. | TRUE |
+| appSecret | string |  | Facebook application secret. | TRUE |
+| children | node |  | React component, HTML element or string. | FALSE |
 
 ###  Hatena
 
-<h3> 👨‍💻 Code </h3>
+👨‍💻 <b>Example</b> 
 
 ```js
-import { HatenaShareCount } from 'react-share-kit'
+import { HatenaCount } from 'react-share-kit'
 
-<HatenaShareCount url={'https://github.com/ayda-tech/react-share-kit'} />
+<HatenaCount url={'https://github.com/ayda-tech/react-share-kit'} />
 
-<HatenaShareCount url={'https://github.com/ayda-tech/react-share-kit'}>
+<HatenaCount url={'https://github.com/ayda-tech/react-share-kit'}>
   {shareCount => <span className="wrapper">{shareCount}</span>}
-</HatenaShareCount>
+</HatenaCount>
 ```
 
-<details>
-<summary>📖 Props</summary>
+📕 <b>Props</b>
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
-| url | string |  | The URL of the shared page. | ✅ |
-| children | node |  | React component, HTML element or string. | ❌ |
-
-</details>
+| url | string |  | The URL of the shared page. | TRUE |
+| children | node |  | React component, HTML element or string. | FALSE |
 
 ###  OK
 
-<h3> 👨‍💻 Code </h3>
+👨‍💻 <b>Example</b> 
 
 ```js
-import { OKShareCount } from 'react-share-kit'
+import { OKCount } from 'react-share-kit'
 
-<OKShareCount url={'https://github.com/ayda-tech/react-share-kit'} />
+<OKCount url={'https://github.com/ayda-tech/react-share-kit'} />
 
-<OKShareCount url={'https://github.com/ayda-tech/react-share-kit'}>
+<OKCount url={'https://github.com/ayda-tech/react-share-kit'}>
   {shareCount => <span className="wrapper">{shareCount}</span>}
-</OKShareCount>
+</OKCount>
 ```
 
-<details>
-<summary>📖 Props</summary>
+📕 <b>Props</b>
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
-| url | string |  | The URL of the shared page. | ✅ |
-| children | node |  | React component, HTML element or string. | ❌ |
-
-</details>
+| url | string |  | The URL of the shared page. | TRUE |
+| children | node |  | React component, HTML element or string. | FALSE |
 
 ###  Pinterest
 
-<h3> 👨‍💻 Code </h3>
+👨‍💻 <b>Example</b> 
 
 ```js
 import { PinterestShareCount } from 'react-share-kit'
 
-<PinterestShareCount url={'https://github.com/ayda-tech/react-share-kit'} />
+<PinterestCount url={'https://github.com/ayda-tech/react-share-kit'} />
 
-<PinterestShareCount url={'https://github.com/ayda-tech/react-share-kit'}>
+<PinterestCount url={'https://github.com/ayda-tech/react-share-kit'}>
   {shareCount => <span className="wrapper">{shareCount}</span>}
-</PinterestShareCount>
+</PinterestCount>
 ```
 
-<details>
-<summary>📖 Props</summary>
+📕 <b>Props</b>
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
-| url | string |  | The URL of the shared page. | ✅ |
-| children | node |  | React component, HTML element or string. | ❌ |
-
-</details>
+| url | string |  | The URL of the shared page. | TRUE |
+| children | node |  | React component, HTML element or string. | FALSE |
 
 ###  Tumblr
 
-<h3> 👨‍💻 Code </h3>
+👨‍💻 <b>Example</b> 
 
 ```js
-import { TumblrShareCount } from 'react-share-kit'
+import { TumblrCount } from 'react-share-kit'
 
-<TumblrShareCount url={'https://github.com/ayda-tech/react-share-kit'} />
+<TumblrCount url={'https://github.com/ayda-tech/react-share-kit'} />
 
-<TumblrShareCount url={'https://github.com/ayda-tech/react-share-kit'}>
+<TumblrCount url={'https://github.com/ayda-tech/react-share-kit'}>
   {shareCount => <span className="wrapper">{shareCount}</span>}
-</TumblrShareCount>
+</TumblrCount>
 ```
 
-<details>
-<summary>📖 Props</summary>
+📕 <b>Props</b
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
-| url | string |  | The URL of the shared page. | ✅ |
-| children | node |  | React component, HTML element or string. | ❌ |
-
-</details>
+| url | string |  | The URL of the shared page. | TRUE |
+| children | node |  | React component, HTML element or string. | FALSE |
 
 ###  VK
 
-<h3> 👨‍💻 Code </h3>
+👨‍💻 <b>Example</b> 
 
 ```js
-import { VKShareCount } from 'react-share-kit'
+import { VKCount } from 'react-share-kit'
 
-<VKShareCount url={'https://github.com/ayda-tech/react-share-kit'} />
+<VKSCount url={'https://github.com/ayda-tech/react-share-kit'} />
 
-<VKShareCount url={'https://github.com/ayda-tech/react-share-kit'}>
+<VKCount url={'https://github.com/ayda-tech/react-share-kit'}>
   {shareCount => <span className="wrapper">{shareCount}</span>}
-</VKShareCount>
+</VKCount>
 ```
 
-<details>
-<summary>📖 Props</summary>
+📕 <b>Props</b>
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
-| url | string |  | The URL of the shared page. | ✅ |
-| children | node |  | React component, HTML element or string. | ❌ |
+| url | string |  | The URL of the shared page. | TRUE |
+| children | node |  | React component, HTML element or string. | FALSE |
 
-</details>
-
-To use React-Share-Kit in your React application, import the necessary components and pass the relevant props to customize the share buttons. For example:
-
-```jsx
-import React from 'react';
-import { FacebookShareButton, TwitterShareButton } from 'react-share-kit';
-
-const ShareButtons = () => {
-  const shareUrl = 'https://example.com';
-  const title = 'Check out this awesome website!';
-
-  return (
-      <FacebookShareButton url={shareUrl} quote={title} />
-  );
-};
-```
-
-## **Documentation**
-
-For more information on how to use React-Share-Kit, including a full list of available share buttons and their props, please refer to the [official documentation](https://github.com/ayda-tech/react-share-kit).
+---
 
 ## License
 

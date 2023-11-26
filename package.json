@@ -1,6 +1,6 @@
 {
   "name": "react-share-kit",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "Social media share buttons and share counts for React and Nextjs.",
   "scripts": {
     "build": "rollup -c",
@@ -11,25 +11,23 @@
   "author": "Ayda Tech",
   "license": "MIT",
   "keywords": [
-    "react-share-kit",
-    "social-count",
-    "social-button-count",
-    "social-count-buttons",
+    "share-button",
     "react-share",
     "next-share",
     "social-share",
-    "share-button",
+    "social-count",
+    "react-share-kit",
+    "social-share-buttons",
+    "social-media-share-buttons",
+    "social-button-count",
+    "social-count-buttons",
     "sharing",
     "share",
     "social",
     "button",
     "react",
     "nextjs",
-    "next.js support",
-    "component library",
-    "reactjs",
-    "social-share-buttons",
-    "social-media-share-buttons"
+    "next.js support"
   ],
   "devDependencies": {
     "@babel/core": "^7.23.3",
@@ -51,6 +49,7 @@
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
     "rollup": "^4.5.0",
+    "rollup-plugin-bundle-size": "^1.0.3",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "typescript": "^5.2.2"
