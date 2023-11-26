@@ -6,8 +6,7 @@ import {
   isPromise,
 } from '../utils'
 
-import icons from '../constant/icons'
-
+import Icon from './icons/icon'
 import { CustomProps } from '../types'
 
 export type Props<LinkOptions> = Omit<
@@ -90,10 +89,10 @@ export default class SocialShareButton<LinkOptions> extends Component<
       round,
       bgColor,
       size = 64,
-      iconStyle,
       borderRadius = 0,
-      iconFillColor = 'white',
+      iconFillColor,
       buttonTitle,
+      color,
       ...rest
     } = this.props
 
@@ -108,8 +107,6 @@ export default class SocialShareButton<LinkOptions> extends Component<
       ...style,
     }
 
-    const icon = icons[networkName]
-
     return (
       <button
         aria-label={rest['aria-label'] || networkName}
@@ -120,28 +117,14 @@ export default class SocialShareButton<LinkOptions> extends Component<
         {buttonTitle ? (
           buttonTitle
         ) : (
-          <svg viewBox="0 0 64 64" width={size} height={size}>
-            {round ? (
-              <circle
-                cx="32"
-                cy="32"
-                r="31"
-                fill={bgColor ?? icon.color}
-                style={style}
-              />
-            ) : (
-              <rect
-                width="64"
-                height="64"
-                rx={borderRadius}
-                ry={borderRadius}
-                fill={bgColor ?? icon.color}
-                style={style}
-              />
-            )}
-
-            <path d={icon.path} fill={iconFillColor} />
-          </svg>
+          <Icon
+            network={networkName}
+            background={bgColor}
+            color={color}
+            borderRadius={borderRadius}
+            round={round}
+            size={size}
+          />
         )}
       </button>
     )
