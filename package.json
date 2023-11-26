@@ -1,6 +1,6 @@
 {
   "name": "react-share-kit",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Social media share buttons and share counts for React and Nextjs.",
   "scripts": {
     "build": "rollup -c",
