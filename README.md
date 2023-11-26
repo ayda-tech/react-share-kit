@@ -16,19 +16,20 @@ React-Share-Kit is a simple and easy-to-use library for adding social media shar
 - [Installation](#installation)
 - [🔥 Share Buttons Detault Props](#-share-buttons-detault-props)
 - [💡 Usage of ShareButtons](#-usage-of-sharebuttons)
-  - [Linkedin](#linkedin)
-  - [Twitter](#twitter)
   - [Facebook](#facebook)
-  - [FacebookMessenger](#facebookmessenger)
+  - [Twitter](#twitter)
+  - [Linkedin](#linkedin)
   - [Whatsapp](#whatsapp)
   - [Telegram](#telegram)
-  - [Line](#line)
+  - [FacebookMessenger](#facebookmessenger)
+  - [Email](#email)
+  - [VK](#vk)
   - [Pinterest](#pinterest)
   - [Reddit](#reddit)
+  - [Line](#line)
   - [Tumblr](#tumblr)
   - [Viber](#viber)
   - [Weibo](#weibo)
-  - [VK](#vk)
   - [Mailru](#mailru)
   - [LiveJournal](#livejournal)
   - [Workplace](#workplace)
@@ -61,7 +62,7 @@ yarn add react-share-kit
 
 ## 🔥 Share Buttons Detault Props
 
-To use React-Share-Kit in your React application, import the necessary components and pass the relevant props to customize the share buttons. For example:
+To use React-Share-Kit in your React application, import the necessary components and pass the relevant props to customize the share buttons. and every share button support this properties as attributes. For example:
 
 👨‍💻 <b>Example</b> 
 
@@ -97,41 +98,6 @@ const ShareButtons = () => {
 
 ## 💡 Usage of ShareButtons
 
-###  Linkedin
-
-👨‍💻 <b>Example</b> 
-
-```js
-import {
-  LinkedinShare
-} from 'react-share-kit'
-
-<LinkedinShare url={'https://github.com/ayda-tech/react-share-kit'} />
-```
-
-###  Twitter
-
-👨‍💻 <b>Example</b> 
-
-```js
-import {
-  TwitterShare
-} from 'react-share-kit'
-
-<TwitterShare
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  title={'react-share-kit - social share buttons for next & react apps.'}
-  hashtags=["#react-share-kit", "#front-end"]
-/>
-```
-📕 <b>Props</b>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| via | string |  |  | FALSE |
-| hashtags | array |  |  | FALSE |
-| related | array |  |  | FALSE |
-
 ### Facebook
 
 👨‍💻 <b>Example</b> 
@@ -156,29 +122,40 @@ import {
 | quote | string |  | A quote to be shared. | FALSE |
 | hashtag | string |  | Hashtag to be shared. | FALSE |
 
-###  FacebookMessenger
+###  Twitter
 
 👨‍💻 <b>Example</b> 
 
 ```js
 import {
-  FacebookMessengerShareButton
+  TwitterShare
 } from 'react-share-kit'
 
-<FacebookMessengerShareButton
-  url='https://github.com/ayda-tech/react-share-kit'
-  redirectUri="https://github.com/ayda-tech/react-share-kit"
-  appId={'dmm4kj9djk203k4liuf994p'}
+<TwitterShare
+  url={'https://github.com/ayda-tech/react-share-kit'}
+  title={'react-share-kit - social share buttons for next & react apps.'}
+  hashtags=["#react-share-kit", "#front-end"]
 />
 ```
-
 📕 <b>Props</b>
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
-| appId | string |  | Facebook application id. | TRUE |
-| redirectUri | string |  | The URL to redirect to after sharing (default: the shared url). | FALSE |
-| to | string |  | A user ID of a recipient. Once the dialog comes up, the sender can specify additional people as recipients. | FALSE |
+| via | string |  |  | FALSE |
+| hashtags | array |  |  | FALSE |
+| related | array |  |  | FALSE |
+
+###  Linkedin
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  LinkedinShare
+} from 'react-share-kit'
+
+<LinkedinShare url={'https://github.com/ayda-tech/react-share-kit'} />
+```
 
 ###  Whatsapp
 
@@ -215,17 +192,77 @@ import {
 <TelegramShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
 
-### Line
+###  FacebookMessenger
 
 👨‍💻 <b>Example</b> 
 
 ```js
 import {
-  LineShare
+  FacebookMessengerShareButton
 } from 'react-share-kit'
 
-<LineShare url={'https://github.com/ayda-tech/react-share-kit'} />
+<FacebookMessengerShareButton
+  url='https://github.com/ayda-tech/react-share-kit'
+  redirectUri="https://github.com/ayda-tech/react-share-kit"
+  appId={'dmm4kj9djk203k4liuf994p'}
+/>
 ```
+
+📕 <b>Props</b>
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| appId | string |  | Facebook application id. | TRUE |
+| redirectUri | string |  | The URL to redirect to after sharing (default: the shared url). | FALSE |
+| to | string |  | A user ID of a recipient. Once the dialog comes up, the sender can specify additional people as recipients. | FALSE |
+
+### Email
+
+👨‍💻 <b>Example</b>
+
+```js
+import { EmailShare } from 'next-share'
+
+<EmailShare
+  url={'https://github.com/next-share'}
+  subject={'Next Share'}
+  body="body"
+/>
+```
+
+📕 <b>Props</b>
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| children | node |  | React component, HTML element or string. | TRUE |
+| url | string |  | The URL of the shared page. | TRUE |
+| subject | string |  |  | FALSE |
+| body | string |  |  | FALSE |
+| separator | string |  |  | FALSE |
+| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | FALSE |
+
+###  VK
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  VKShare
+} from 'react-share-kit'
+
+<VKShare
+  url={'https://github.com/ayda-tech/react-share-kit'}
+  image={'./react-share.png'}
+/>
+```
+
+📕 <b>Props</b>
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| image | string |  | An absolute link to the image that will be shared. | FALSE |
+| noParse | boolean |  | If true is passed, VK will not retrieve URL information. | FALSE |
+| noVkLinks | boolean |  | If true is passed, there will be no links to the user's profile in the open window. Only for mobile devices. | FALSE |
 
 ###  Pinterest
 
@@ -258,6 +295,18 @@ import {
 } from 'react-share-kit'
 
 <RedditShare url={'https://github.com/ayda-tech/react-share-kit'} />
+```
+
+###  Line
+
+👨‍💻 <b>Example</b> 
+
+```js
+import {
+  LineShare
+} from 'react-share-kit'
+
+<LineShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
 
 ###  Tumblr
@@ -325,29 +374,6 @@ import {
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
 | image | string |  | The image URL that will be shared. | FALSE |
-
-###  VK
-
-👨‍💻 <b>Example</b> 
-
-```js
-import {
-  VKShare
-} from 'react-share-kit'
-
-<VKShare
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  image={'./react-share.png'}
-/>
-```
-
-📕 <b>Props</b>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| image | string |  | An absolute link to the image that will be shared. | FALSE |
-| noParse | boolean |  | If true is passed, VK will not retrieve URL information. | FALSE |
-| noVkLinks | boolean |  | If true is passed, there will be no links to the user's profile in the open window. Only for mobile devices. | FALSE |
 
 ###  Mailru
 
