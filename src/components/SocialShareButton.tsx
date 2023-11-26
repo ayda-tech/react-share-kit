@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useRef } from 'react'
 import {
   CustomWindow,
   getPositionOnWindowCenter,
@@ -15,24 +15,35 @@ export type Props<LinkOptions> = Omit<
 > &
   CustomProps<LinkOptions>
 
-export default class SocialShareButton<LinkOptions> extends Component<
-  Props<LinkOptions>
-> {
-  static defaultProps = {
-    disabledStyle: { opacity: 0.6 },
-    openShareDialogOnClick: true,
-    resetButtonStyle: true,
-  }
+const SocialShareButton = <LinkOptions,>({
+  onShareWindowClose,
+  windowHeight = 400,
+  windowPosition = 'windowCenter',
+  windowWidth = 550,
+  blankTarget = false,
+  beforeOnClick,
+  disabled,
+  networkLink,
+  onClick,
+  url,
+  openShareDialogOnClick,
+  opts,
+  children,
+  forwardedRef,
+  networkName,
+  style,
+  round,
+  bgColor,
+  size = 64,
+  borderRadius = 0,
+  iconFillColor,
+  buttonTitle,
+  color,
+  ...rest
+}: Props<LinkOptions>) => {
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
-  openShareDialog = (link: string) => {
-    const {
-      onShareWindowClose,
-      windowHeight = 400,
-      windowPosition = 'windowCenter',
-      windowWidth = 550,
-      blankTarget = false,
-    } = this.props
-
+  const openShareDialog = (link: string) => {
     const windowConfig = {
       height: windowHeight,
       width: windowWidth,
@@ -44,17 +55,7 @@ export default class SocialShareButton<LinkOptions> extends Component<
     CustomWindow(link, windowConfig, blankTarget, onShareWindowClose)
   }
 
-  handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
-    const {
-      beforeOnClick,
-      disabled,
-      networkLink,
-      onClick,
-      url,
-      openShareDialogOnClick,
-      opts,
-    } = this.props
-
+  const handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
     const link = networkLink(url, opts)
 
     if (disabled) {
@@ -72,7 +73,7 @@ export default class SocialShareButton<LinkOptions> extends Component<
     }
 
     if (openShareDialogOnClick) {
-      this.openShareDialog(link)
+      openShareDialog(link)
     }
 
     if (onClick) {
@@ -80,53 +81,44 @@ export default class SocialShareButton<LinkOptions> extends Component<
     }
   }
 
-  render() {
-    const {
-      children,
-      forwardedRef,
-      networkName,
-      style,
-      round,
-      bgColor,
-      size = 64,
-      borderRadius = 0,
-      iconFillColor,
-      buttonTitle,
-      color,
-      ...rest
-    } = this.props
-
-    const newStyle = {
-      backgroundColor: 'transparent',
-      border: 'none',
-      padding: 0,
-      font: 'inherit',
-      color: 'inherit',
-      cursor: 'pointer',
-      outline: 'none',
-      ...style,
-    }
-
-    return (
-      <button
-        aria-label={rest['aria-label'] || networkName}
-        onClick={this.handleClick}
-        ref={forwardedRef}
-        style={newStyle}
-      >
-        {buttonTitle ? (
-          buttonTitle
-        ) : (
-          <Icon
-            network={networkName}
-            background={bgColor}
-            color={color}
-            borderRadius={borderRadius}
-            round={round}
-            size={size}
-          />
-        )}
-      </button>
-    )
+  const newStyle = {
+    backgroundColor: 'transparent',
+    border: 'none',
+    padding: 0,
+    font: 'inherit',
+    color: 'inherit',
+    cursor: 'pointer',
+    outline: 'none',
+    ...style,
   }
+
+  return (
+    <button
+      aria-label={rest['aria-label'] || networkName}
+      onClick={handleClick}
+      ref={forwardedRef || buttonRef}
+      style={newStyle}
+    >
+      {buttonTitle ? (
+        buttonTitle
+      ) : (
+        <Icon
+          network={networkName}
+          background={bgColor}
+          color={color}
+          borderRadius={borderRadius}
+          round={round}
+          size={size}
+        />
+      )}
+    </button>
+  )
 }
+
+SocialShareButton.defaultProps = {
+  disabledStyle: { opacity: 0.6 },
+  openShareDialogOnClick: true,
+  resetButtonStyle: true,
+}
+
+export default SocialShareButton

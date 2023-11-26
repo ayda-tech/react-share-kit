@@ -7,8 +7,8 @@ import dts from 'rollup-plugin-dts'
 import packageJSON from './package.json' assert { type: 'json' }
 
 // ======= FOR BUILDING NODE.JS PACKAGE =======
-// import builtins from 'builtin-modules'
-// import resolve, { nodeResolve } from '@rollup/plugin-node-resolve'
+import builtins from 'builtin-modules'
+import resolve, { nodeResolve } from '@rollup/plugin-node-resolve'
 // ============================================
 
 export default [
@@ -35,11 +35,12 @@ export default [
       }),
       babel({
         exclude: 'node_modules/**',
+        babelHelpers: 'bundled',
       }),
-      // resolve({
-      //   preferBuiltins: true,
-      // }),
-      // nodeResolve(),
+      resolve({
+        preferBuiltins: true,
+      }),
+      nodeResolve(),
       commonjs({
         extensions: ['.js', '.ts', '.tsx'],
       }),
