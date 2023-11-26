@@ -3,12 +3,13 @@ import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import terser from '@rollup/plugin-terser'
 import dts from 'rollup-plugin-dts'
+import bundleSize from 'rollup-plugin-bundle-size'
 
 import packageJSON from './package.json' assert { type: 'json' }
 
 // ======= FOR BUILDING NODE.JS PACKAGE =======
-import builtins from 'builtin-modules'
-import resolve, { nodeResolve } from '@rollup/plugin-node-resolve'
+// import builtins from 'builtin-modules'
+// import resolve, { nodeResolve } from '@rollup/plugin-node-resolve'
 // ============================================
 
 export default [
@@ -37,14 +38,15 @@ export default [
         exclude: 'node_modules/**',
         babelHelpers: 'bundled',
       }),
-      resolve({
-        preferBuiltins: true,
-      }),
-      nodeResolve(),
+      // resolve({
+      //   preferBuiltins: true,
+      // }),
+      // nodeResolve(),
       commonjs({
         extensions: ['.js', '.ts', '.tsx'],
       }),
       terser(),
+      bundleSize(),
     ],
   },
   {
