@@ -18,8 +18,8 @@ export { default as PocketShare } from './components/buttons/PocketShareButton'
 export { default as InstapaperShare } from './components/buttons/InstapaperShareButton'
 export { default as HatenaShare } from './components/buttons/HatenaShareButton'
 export { default as FacebookMessengerShare } from './components/buttons/FacebookMessengerShareButton'
-export { default as EmailShareShare } from './components/buttons/EmailShareButton'
-export { default as GabShareShare } from './components/buttons/GabShareButton'
+export { default as EmailShare } from './components/buttons/EmailShareButton'
+export { default as GabShare } from './components/buttons/GabShareButton'
 
 // Counts
 export { default as OKCount } from './components/counts/OKShareCount'

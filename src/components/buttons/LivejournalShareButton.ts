@@ -3,7 +3,7 @@ import { LiveJournalLinkParams } from '../../types'
 import { liveJournalLink } from '../../utils/button'
 
 const LiveJournalShareButton = createShareButton<LiveJournalLinkParams>(
-  'liveJournal',
+  'livejournal',
   liveJournalLink,
   ({ description, title }) => ({
     title,
