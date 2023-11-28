@@ -14,36 +14,37 @@ React-Share-Kit is a simple and easy-to-use library for adding social media shar
 
 ### Table of Contents
 - [Installation](#installation)
-- [🔥 Share Buttons Detault Props](#-share-buttons-detault-props)
+- [📕 Share Button Global Props](#-share-button-global-props)
 - [💡 Usage of ShareButtons](#-usage-of-sharebuttons)
-  - [Facebook](#facebook)
-  - [Twitter](#twitter)
-  - [Linkedin](#linkedin)
-  - [Whatsapp](#whatsapp)
-  - [Telegram](#telegram)
-  - [FacebookMessenger](#facebookmessenger)
-  - [Email](#email)
-  - [VK](#vk)
-  - [Pinterest](#pinterest)
-  - [Reddit](#reddit)
-  - [Line](#line)
-  - [Tumblr](#tumblr)
-  - [Viber](#viber)
-  - [Weibo](#weibo)
-  - [Mailru](#mailru)
-  - [LiveJournal](#livejournal)
-  - [Workplace](#workplace)
-  - [Pocket](#pocket)
-  - [Instapaper](#instapaper)
-  - [Hatena](#hatena)
-  - [Gab](#gab)
+  - [Facebook Share](#facebook-share)
+  - [Twitter Share](#twitter-share)
+  - [Linkedin Share](#linkedin-share)
+  - [Whatsapp Share](#whatsapp-share)
+  - [Telegram Share](#telegram-share)
+  - [FacebookMessenger Share](#facebookmessenger-share)
+  - [Email Share](#email-share)
+  - [VK Share](#vk-share)
+  - [Pinterest Share](#pinterest-share)
+  - [Reddit Share](#reddit-share)
+  - [Line Share](#line-share)
+  - [Tumblr Share](#tumblr-share)
+  - [Viber Share](#viber-share)
+  - [Weibo Share](#weibo-share)
+  - [Mailru Share](#mailru-share)
+  - [LiveJournal Share](#livejournal-share)
+  - [Workplace Share](#workplace-share)
+  - [Pocket Share](#pocket-share)
+  - [Instapaper Share](#instapaper-share)
+  - [Hatena Share](#hatena-share)
+  - [Gab Share](#gab-share)
+- [📕 Share Count global props](#-share-count-global-props)
 - [💡 Usage of ShareCount](#-usage-of-sharecount)
-  - [Facebook](#facebook-1)
-  - [Hatena](#hatena-1)
-  - [OK](#ok)
-  - [Pinterest](#pinterest-1)
-  - [Tumblr](#tumblr-1)
-  - [VK](#vk-1)
+  - [Facebook Count](#facebook-count)
+  - [Hatena Count](#hatena-count)
+  - [OK Count](#ok-count)
+  - [Pinterest Count](#pinterest-count)
+  - [Tumblr Count](#tumblr-count)
+  - [VK Count](#vk-count)
 - [License](#license)
 
 ## Installation
@@ -60,27 +61,9 @@ or
 yarn add react-share-kit
 ```
 
-## 🔥 Share Buttons Detault Props
+## 📕 Share Button Global Props
 
-To use React-Share-Kit in your React application, import the necessary components and pass the relevant props to customize the share buttons. and every share button support this properties as attributes. For example:
-
-👨‍💻 <b>Example</b> 
-
-```jsx
-import React from 'react';
-import { FacebookShare, TwitterShare } from 'react-share-kit';
-
-const ShareButtons = () => {
-  const shareUrl = 'https://example.com';
-  const title = 'Check out this awesome website!';
-
-  return (
-      <FacebookShare url={shareUrl} quote={title} />
-      <TwitterShare url={shareUrl} round title="X" />
-  );
-};
-```
-📕 <b>Default Props</b>
+Each button supports a set of global props that are consistent across all buttons. However, in addition to these global props, each button also possesses its own unique set of specific properties. These specific properties are tailored to the individual functionality and customization options of each button.
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
@@ -95,10 +78,41 @@ const ShareButtons = () => {
 | size  | number | 64px | The button size. | FALSE |
 | buttonTitle  | string | | The title of button used instead of icon. | FALSE |
 
+👨‍💻 <b>Example</b> 
+
+```jsx
+import React from 'react';
+import { FacebookShare, FacebookCount } from 'react-share-kit';
+
+const ShareButtons = () => {
+  const shareUrl = 'https://github.com/ayda-tech/react-share-kit';
+  const title = 'Check out this awesome website!';
+
+  return (
+      <>
+        <FacebookShare url={shareUrl} quote={title} />
+
+        <FacebookCount
+          url={shareUrl}
+          appId='your-app-id'
+          appSecret='your-app-secret'
+        />
+
+        <FacebookCount
+          url={shareUrl}
+          appId='your-app-id'
+          appSecret='your-app-secret'
+        >
+          {shareCount => <span className="wrapper">{shareCount}</span>}
+        </FacebookCount>
+      </>
+  );
+};
+```
 
 ## 💡 Usage of ShareButtons
 
-### Facebook
+### Facebook Share
 
 👨‍💻 <b>Example</b> 
 
@@ -115,14 +129,15 @@ import {
 
 ```
 
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on Facebook
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
 | quote | string |  | A quote to be shared. | FALSE |
 | hashtag | string |  | Hashtag to be shared. | FALSE |
 
-###  Twitter
+
+###  Twitter Share
 
 👨‍💻 <b>Example</b> 
 
@@ -137,7 +152,7 @@ import {
   hashtags=["#react-share-kit", "#front-end"]
 />
 ```
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on Twitter
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
@@ -145,7 +160,7 @@ import {
 | hashtags | array |  |  | FALSE |
 | related | array |  |  | FALSE |
 
-###  Linkedin
+###  Linkedin Share
 
 👨‍💻 <b>Example</b> 
 
@@ -157,7 +172,7 @@ import {
 <LinkedinShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
 
-###  Whatsapp
+###  Whatsapp Share
 
 👨‍💻 <b>Example</b> 
 
@@ -173,14 +188,14 @@ import {
 />
 ```
 
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on WhatsApp
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
 | separator | string |  |  | FALSE |
 
 
-###  Telegram
+###  Telegram Share
 
 👨‍💻 <b>Example</b> 
 
@@ -192,7 +207,7 @@ import {
 <TelegramShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
 
-###  FacebookMessenger
+###  FacebookMessenger Share
 
 👨‍💻 <b>Example</b> 
 
@@ -208,7 +223,7 @@ import {
 />
 ```
 
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on Facebook Messenger
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
@@ -216,7 +231,7 @@ import {
 | redirectUri | string |  | The URL to redirect to after sharing (default: the shared url). | FALSE |
 | to | string |  | A user ID of a recipient. Once the dialog comes up, the sender can specify additional people as recipients. | FALSE |
 
-### Email
+### Email Share
 
 👨‍💻 <b>Example</b>
 
@@ -230,7 +245,7 @@ import { EmailShare } from 'next-share'
 />
 ```
 
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on Email
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
@@ -241,7 +256,7 @@ import { EmailShare } from 'next-share'
 | separator | string |  |  | FALSE |
 | blankTarget | boolean | false | Open share window in a new tab if set to `true`. | FALSE |
 
-###  VK
+###  VK Share
 
 👨‍💻 <b>Example</b> 
 
@@ -256,7 +271,7 @@ import {
 />
 ```
 
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on VK
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
@@ -264,7 +279,7 @@ import {
 | noParse | boolean |  | If true is passed, VK will not retrieve URL information. | FALSE |
 | noVkLinks | boolean |  | If true is passed, there will be no links to the user's profile in the open window. Only for mobile devices. | FALSE |
 
-###  Pinterest
+###  Pinterest Share
 
 👨‍💻 <b>Example</b> 
 
@@ -278,14 +293,14 @@ import {
   media={'react-share-kit - social share buttons for next & react apps.'}
 />
 ```
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on Pinterest
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
 | media | string |  | The image URL that will be pinned. | TRUE |
 | description | string |  | The description of the shared media. | FALSE |
 
-###  Reddit
+###  Reddit Share
 
 👨‍💻 <b>Example</b> 
 
@@ -297,7 +312,7 @@ import {
 <RedditShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
 
-###  Line
+###  Line Share
 
 👨‍💻 <b>Example</b> 
 
@@ -309,7 +324,7 @@ import {
 <LineShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
 
-###  Tumblr
+###  Tumblr Share
 
 👨‍💻 <b>Example</b> 
 
@@ -324,7 +339,7 @@ import {
 />
 ```
 
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on Tumblr
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
@@ -332,7 +347,7 @@ import {
 | caption | string |  | The description of the shared page. | FALSE |
 | posttype | string | <code>link</code> |  | FALSE |
 
-###  Viber
+###  Viber Share
 
 👨‍💻 <b>Example</b> 
 
@@ -347,13 +362,13 @@ import {
 />
 ```
 
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on Viber
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
 | separator | string |  |  | FALSE |
 
-###  Weibo
+###  Weibo Share
 
 👨‍💻 <b>Example</b> 
 
@@ -369,13 +384,13 @@ import {
 />
 ```
 
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on Weibo
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
 | image | string |  | The image URL that will be shared. | FALSE |
 
-###  Mailru
+###  Mailru Share
 
 👨‍💻 <b>Example</b> 
 
@@ -387,14 +402,14 @@ import {
 <MailruShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
 
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on Mail-Ru
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
 | description | string |  | Description of the shared page. | FALSE |
 | imageUrl | string |  | Image url of the shared page. | FALSE |
 
-###  LiveJournal
+###  LiveJournal Share
 
 👨‍💻 <b>Example</b> 
 
@@ -406,13 +421,13 @@ import {
 <LiveJournalShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
 
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on Live Journal
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
 | description | string |  | Description of the shared page. | FALSE |
 
-###  Workplace
+###  Workplace Share
 
 👨‍💻 <b>Example</b> 
 
@@ -427,14 +442,14 @@ import {
 />
 ```
 
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on Workspace
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
 | quote | string |  |  | FALSE |
 | hashtag | string |  |  | FALSE |
 
-###  Pocket
+###  Pocket Share
 
 👨‍💻 <b>Example</b> 
 
@@ -446,7 +461,7 @@ import {
 <PocketShare url={'https://github.com/ayda-tech/react-share-kit' />
 ```
 
-###  Instapaper
+###  Instapaper Share
 
 👨‍💻 <b>Example</b> 
 
@@ -458,25 +473,25 @@ import {
 <InstapaperShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
 
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on Instapaper
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
 | description | string |  | Description of the shared page. | FALSE |
 
-###  Hatena
+###  Hatena Share
 
 👨‍💻 <b>Example</b> 
 
 ```js
 import {
-  HatenaShareButton
+  HatenaShare
 } from 'react-share-kit'
 
 <HatenaShare url={'https://github.com/ayda-tech/react-share-kit' />
 ```
 
-###  Gab
+###  Gab Share
 
 👨‍💻 <b>Example</b> 
 
@@ -489,9 +504,17 @@ import {
 
 ```
 
+
+## 📕 Share Count global props
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| url | string |  | The URL of the shared page. | TRUE |
+| children | node |  | React component, HTML element or string. | FALSE |
+
 ## 💡 Usage of ShareCount
 
-###  Facebook
+###  Facebook Count
 
 👨‍💻 <b>Example</b> 
 
@@ -513,16 +536,14 @@ import { FacebookCount } from 'react-share-kit'
 </FacebookCount>
 ```
 
-📕 <b>Props</b>
+📕 <b>Props</b>: Supports only on Facebook count
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
-| url | string |  | The URL of the shared page. | TRUE |
 | appId | string |  | Facebook application id. | TRUE |
 | appSecret | string |  | Facebook application secret. | TRUE |
-| children | node |  | React component, HTML element or string. | FALSE |
 
-###  Hatena
+###  Hatena Count
 
 👨‍💻 <b>Example</b> 
 
@@ -536,14 +557,7 @@ import { HatenaCount } from 'react-share-kit'
 </HatenaCount>
 ```
 
-📕 <b>Props</b>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| url | string |  | The URL of the shared page. | TRUE |
-| children | node |  | React component, HTML element or string. | FALSE |
-
-###  OK
+###  OK Count
 
 👨‍💻 <b>Example</b> 
 
@@ -557,14 +571,7 @@ import { OKCount } from 'react-share-kit'
 </OKCount>
 ```
 
-📕 <b>Props</b>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| url | string |  | The URL of the shared page. | TRUE |
-| children | node |  | React component, HTML element or string. | FALSE |
-
-###  Pinterest
+###  Pinterest Count
 
 👨‍💻 <b>Example</b> 
 
@@ -578,14 +585,7 @@ import { PinterestShareCount } from 'react-share-kit'
 </PinterestCount>
 ```
 
-📕 <b>Props</b>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| url | string |  | The URL of the shared page. | TRUE |
-| children | node |  | React component, HTML element or string. | FALSE |
-
-###  Tumblr
+###  Tumblr Count
 
 👨‍💻 <b>Example</b> 
 
@@ -599,14 +599,7 @@ import { TumblrCount } from 'react-share-kit'
 </TumblrCount>
 ```
 
-📕 <b>Props</b
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| url | string |  | The URL of the shared page. | TRUE |
-| children | node |  | React component, HTML element or string. | FALSE |
-
-###  VK
+###  VK Count
 
 👨‍💻 <b>Example</b> 
 
@@ -619,15 +612,6 @@ import { VKCount } from 'react-share-kit'
   {shareCount => <span className="wrapper">{shareCount}</span>}
 </VKCount>
 ```
-
-📕 <b>Props</b>
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| url | string |  | The URL of the shared page. | TRUE |
-| children | node |  | React component, HTML element or string. | FALSE |
-
----
 
 ## License
 
