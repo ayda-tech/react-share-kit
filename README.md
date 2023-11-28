@@ -511,6 +511,8 @@ import {
 | :--- | :--- | :--- | :--- | :--- |
 | url | string |  | The URL of the shared page. | TRUE |
 | children | node |  | React component, HTML element or string. | FALSE |
+| appId | string |  | Facebook application id. | TRUE |
+| appSecret | string |  | Facebook application secret. | TRUE |
 
 ## 💡 Usage of ShareCount
 
