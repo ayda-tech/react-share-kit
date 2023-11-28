@@ -8,7 +8,7 @@ React-Share-Kit is a simple and easy-to-use library for adding social media shar
 
 [![NPM](https://img.shields.io/npm/v/react-share-kit.svg)](https://www.npmjs.com/package/react-share-kit) ![npm bundle size](https://img.shields.io/bundlephobia/min/react-share-kit) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-![Share buttons screenshot](example.png)
+![Share buttons screenshot](https://github.com/ayda-tech/react-share-kit/blob/main/example.png)
 </center>
 
 ---
