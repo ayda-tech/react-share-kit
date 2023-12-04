@@ -1,52 +1,54 @@
 
-<center>
-
-### React-Share-Kit 
+# React-Share-Kit 
 React-Share-Kit is a simple and easy-to-use library for adding social media share buttons to your React & Next applications. With React-Share-Kit, you can quickly integrate share buttons for popular social media platforms such as Facebook, Twitter, LinkedIn, and more.
 
+If package size is mater and you don't need use share count functionality instead of your React.js, Next.js and PReact project build with Javascript and Typescript. [React-share-lite](https://www.npmjs.com/package/react-share-lite) is the solution to enhance your application performance.
+****
 [![downloads](https://img.shields.io/npm/dm/react-share-kit.svg?label=monthly%20downloads)](https://www.npmjs.com/package/react-share-kit) [![downloads](https://img.shields.io/npm/dt/react-share-kit.svg?label=total%20downloads)](https://www.npmjs.com/package/react-share-kit)
 
 [![NPM](https://img.shields.io/npm/v/react-share-kit.svg)](https://www.npmjs.com/package/react-share-kit) ![npm bundle size](https://img.shields.io/bundlephobia/min/react-share-kit) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-![Share buttons screenshot](https://github.com/ahmadjoya/js-generate-password/blob/main/react-share-kit-demo.png)
-</center>
+![Share buttons screenshot](https://github.com/ayda-tech/react-share-lite/blob/main/react-share-lite.png?raw=true)
+
 
 ---
 
 ### Table of Contents
-- [Installation](#installation)
-- [📕 Share Button Global Props](#-share-button-global-props)
-- [💡 Usage of ShareButtons](#-usage-of-sharebuttons)
-  - [Facebook Share](#facebook-share)
-  - [Twitter Share](#twitter-share)
-  - [Linkedin Share](#linkedin-share)
-  - [Whatsapp Share](#whatsapp-share)
-  - [Telegram Share](#telegram-share)
-  - [FacebookMessenger Share](#facebookmessenger-share)
-  - [Email Share](#email-share)
-  - [VK Share](#vk-share)
-  - [Pinterest Share](#pinterest-share)
-  - [Reddit Share](#reddit-share)
-  - [Line Share](#line-share)
-  - [Tumblr Share](#tumblr-share)
-  - [Viber Share](#viber-share)
-  - [Weibo Share](#weibo-share)
-  - [Mailru Share](#mailru-share)
-  - [LiveJournal Share](#livejournal-share)
-  - [Workplace Share](#workplace-share)
-  - [Pocket Share](#pocket-share)
-  - [Instapaper Share](#instapaper-share)
-  - [Hatena Share](#hatena-share)
-  - [Gab Share](#gab-share)
-- [📕 Share Count global props](#-share-count-global-props)
-- [💡 Usage of ShareCount](#-usage-of-sharecount)
-  - [Facebook Count](#facebook-count)
-  - [Hatena Count](#hatena-count)
-  - [OK Count](#ok-count)
-  - [Pinterest Count](#pinterest-count)
-  - [Tumblr Count](#tumblr-count)
-  - [VK Count](#vk-count)
-- [License](#license)
+- [React-Share-Kit](#react-share-kit)
+    - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [📕 Share Button Global Props](#-share-button-global-props)
+  - [💡 Usage of ShareButtons](#-usage-of-sharebuttons)
+    - [Facebook Share](#facebook-share)
+    - [Twitter Share](#twitter-share)
+    - [Linkedin Share](#linkedin-share)
+    - [Whatsapp Share](#whatsapp-share)
+    - [Telegram Share](#telegram-share)
+    - [FacebookMessenger Share](#facebookmessenger-share)
+    - [Email Share](#email-share)
+    - [VK Share](#vk-share)
+    - [Pinterest Share](#pinterest-share)
+    - [Reddit Share](#reddit-share)
+    - [Line Share](#line-share)
+    - [Tumblr Share](#tumblr-share)
+    - [Viber Share](#viber-share)
+    - [Weibo Share](#weibo-share)
+    - [Mailru Share](#mailru-share)
+    - [LiveJournal Share](#livejournal-share)
+    - [Workplace Share](#workplace-share)
+    - [Pocket Share](#pocket-share)
+    - [Instapaper Share](#instapaper-share)
+    - [Hatena Share](#hatena-share)
+    - [Gab Share](#gab-share)
+  - [📕 Share Count global props](#-share-count-global-props)
+  - [💡 Usage of ShareCount](#-usage-of-sharecount)
+    - [Facebook Count](#facebook-count)
+    - [Hatena Count](#hatena-count)
+    - [OK Count](#ok-count)
+    - [Pinterest Count](#pinterest-count)
+    - [Tumblr Count](#tumblr-count)
+    - [VK Count](#vk-count)
+  - [License](#license)
 
 ## Installation
 
@@ -118,9 +120,7 @@ const ShareButtons = () => {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  FacebookShare
-} from 'react-share-kit'
+import { FacebookShare } from 'react-share-kit'
 
 <FacebookShare
   url={'https://github.com/ayda-tech/react-share-kit'}
@@ -137,15 +137,12 @@ import {
 | quote | string |  | A quote to be shared. | FALSE |
 | hashtag | string |  | Hashtag to be shared. | FALSE |
 
-
 ###  Twitter Share
 
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  TwitterShare
-} from 'react-share-kit'
+import { TwitterShare } from 'react-share-kit'
 
 <TwitterShare
   url={'https://github.com/ayda-tech/react-share-kit'}
@@ -166,9 +163,7 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  LinkedinShare
-} from 'react-share-kit'
+import { LinkedinShare } from 'react-share-kit'
 
 <LinkedinShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
@@ -178,9 +173,7 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  WhatsappShare
-} from 'react-share-kit'
+import { WhatsappShare } from 'react-share-kit'
 
 <WhatsappShare
   url={'https://github.com/ayda-tech/react-share-kit'}
@@ -201,9 +194,7 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  TelegramShare
-} from 'react-share-kit'
+import { TelegramShare } from 'react-share-kit'
 
 <TelegramShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
@@ -213,11 +204,9 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  FacebookMessengerShareButton
-} from 'react-share-kit'
+import { FacebookMessengerShare } from 'react-share-kit'
 
-<FacebookMessengerShareButton
+<FacebookMessengerShare
   url='https://github.com/ayda-tech/react-share-kit'
   redirectUri="https://github.com/ayda-tech/react-share-kit"
   appId={'dmm4kj9djk203k4liuf994p'}
@@ -262,9 +251,7 @@ import { EmailShare } from 'next-share'
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  VKShare
-} from 'react-share-kit'
+import { VKShare } from 'react-share-kit'
 
 <VKShare
   url={'https://github.com/ayda-tech/react-share-kit'}
@@ -285,9 +272,7 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  PinterestShare
-} from 'react-share-kit'
+import { PinterestShare } from 'react-share-kit'
 
 <PinterestShare
   url={'https://github.com/ayda-tech/react-share-kit'}
@@ -306,9 +291,7 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  RedditShare
-} from 'react-share-kit'
+import { RedditShare } from 'react-share-kit'
 
 <RedditShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
@@ -318,9 +301,7 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  LineShare
-} from 'react-share-kit'
+import { LineShare } from 'react-share-kit'
 
 <LineShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
@@ -330,9 +311,7 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  TumblrShare
-} from 'react-share-kit'
+import { TumblrShare } from 'react-share-kit'
 
 <TumblrShare
   url={'https://github.com/ayda-tech/react-share-kit'}
@@ -353,9 +332,7 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  ViberShare
-} from 'react-share-kit'
+import { ViberShare } from 'react-share-kit'
 
 <ViberShare
   url={'https://github.com/ayda-tech/react-share-kit'}
@@ -374,9 +351,7 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  WeiboShare
-} from 'react-share-kit'
+import { WeiboShare } from 'react-share-kit'
 
 <WeiboShare
   url={'https://github.com/ayda-tech/react-share-kit'}
@@ -396,9 +371,7 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  MailruShare
-} from 'react-share-kit'
+import { MailruShare } from 'react-share-kit'
 
 <MailruShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
@@ -415,9 +388,7 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  LiveJournalShare
-} from 'react-share-kit'
+import { LiveJournalShare } from 'react-share-kit'
 
 <LiveJournalShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
@@ -433,9 +404,7 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  WorkplaceShare
-} from 'react-share-kit'
+import { WorkplaceShare } from 'react-share-kit'
 
 <WorkplaceShare
   url={'https://github.com/ayda-tech/react-share-kit'}
@@ -459,7 +428,7 @@ import {
   PocketShare
 } from 'react-share-kit'
 
-<PocketShare url={'https://github.com/ayda-tech/react-share-kit' />
+<PocketShare url='https://github.com/ayda-tech/react-share-kit' />
 ```
 
 ###  Instapaper Share
@@ -467,9 +436,7 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  InstapaperShare
-} from 'react-share-kit'
+import { InstapaperShare } from 'react-share-kit'
 
 <InstapaperShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
@@ -485,9 +452,7 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  HatenaShare
-} from 'react-share-kit'
+import { HatenaShare } from 'react-share-kit'
 
 <HatenaShare url={'https://github.com/ayda-tech/react-share-kit' />
 ```
@@ -497,14 +462,10 @@ import {
 👨‍💻 <b>Example</b> 
 
 ```js
-import {
-  GabShare
-} from 'react-share-kit'
+import { GabShare } from 'react-share-kit'
 
 <GabShare url={'https://github.com/ayda-tech/react-share-kit'} />
-
 ```
-
 
 ## 📕 Share Count global props
 
