@@ -10,12 +10,7 @@ const EmailShareButton = createShareButton<EmailLinkParams>(
     body: props.body,
     separator: props.separator || ' ',
   }),
-  {
-    openShareDialogOnClick: false,
-    onClick: (_, link: string) => {
-      window.location.href = link
-    },
-  },
+  {},
 )
 
 export default EmailShareButton

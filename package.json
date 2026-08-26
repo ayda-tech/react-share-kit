@@ -1,11 +1,11 @@
 {
   "name": "react-share-kit",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Social media share buttons and share counts for React and Nextjs.",
   "scripts": {
     "build": "rollup -c",
     "prettier": "prettier --write './src/*.ts' './src/**/*.ts' './src/**/*.tsx' --config ./.prettierrc",
-    "lint:check": "eslint ./src --ext .tsx,.ts --report-unused-disable-directives",
+    "lint:check": "eslint ./src",
     "dev": "rollup -c -w"
   },
   "author": "Ayda Tech",
@@ -26,45 +26,56 @@
     "social",
     "button",
     "react",
+    "react 19",
     "nextjs",
-    "next.js support"
+    "next.js support",
+    "x",
+    "bluesky",
+    "threads"
   ],
   "devDependencies": {
-    "@babel/core": "^7.23.3",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/preset-env": "^7.23.3",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-typescript": "^11.1.5",
+    "@rollup/plugin-typescript": "^12.3.0",
     "@types/jsonp": "^0.2.3",
-    "@types/react": "^18.2.37",
-    "@typescript-eslint/eslint-plugin": "^6.11.0",
-    "@typescript-eslint/parser": "^6.11.0",
-    "eslint": "^8.54.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^3.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
-    "rollup": "^4.5.0",
+    "@types/react": "^19.2.18",
+    "eslint": "^9.39.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "prettier": "^3.9.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "rollup": "^4.63.0",
     "rollup-plugin-bundle-size": "^1.0.3",
-    "rollup-plugin-dts": "^6.1.0",
-    "rollup-plugin-typescript2": "^0.36.0",
-    "typescript": "^5.2.2"
+    "rollup-plugin-dts": "^6.5.1",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.0"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "dependencies": {
     "jsonp": "^0.2.1"
   },
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.es.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
   "files": [
     "dist"
   ],

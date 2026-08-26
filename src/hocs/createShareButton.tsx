@@ -1,4 +1,10 @@
-import React, { Ref, forwardRef } from 'react'
+import {
+  ForwardRefExoticComponent,
+  ForwardRefRenderFunction,
+  Ref,
+  RefAttributes,
+  forwardRef,
+} from 'react'
 
 import SocialShareButton, {
   Props as ShareButtonProps,
@@ -35,14 +41,16 @@ function createShareButton<
         forwardedRef={ref}
         networkName={networkName}
         networkLink={link}
-        opts={optsMap(props)}
+        opts={opts}
       />
     )
   }
 
   CreatedButton.displayName = `ShareButton-${networkName}`
 
-  return forwardRef(CreatedButton)
+  return forwardRef(
+    CreatedButton as ForwardRefRenderFunction<HTMLButtonElement, any>,
+  ) as ForwardRefExoticComponent<Props & RefAttributes<HTMLButtonElement>>
 }
 
 export default createShareButton

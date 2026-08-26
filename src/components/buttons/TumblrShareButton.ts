@@ -3,8 +3,8 @@ import { TumblrLinkParams } from '../../types'
 import { tumblrLink } from '../../utils/button'
 
 const TumblrShareButton = createShareButton<
-  TumblrLinkParams & { tags?: string[] },
-  TumblrLinkParams & { tags: string }
+  Omit<TumblrLinkParams, 'tags'> & { tags?: string[] },
+  TumblrLinkParams
 >(
   'tumblr',
   tumblrLink,

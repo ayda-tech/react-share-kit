@@ -24,29 +24,6 @@ declare global {
 }
 
 /**
- * Retrieves the share count of a Facebook post or URL.
- *
- * @param shareUrl - The URL or post to retrieve the share count for.
- * @param callback - The callback function to be called with the share count.
- * @param appId - The Facebook app ID (optional).
- * @param appSecret - The Facebook app secret (optional).
- */
-export function getFacebookShareCount(
-  shareUrl: string,
-  callback: (shareCount?: number) => void,
-  appId?: string,
-  appSecret?: string,
-) {
-  const endpoint = `https://graph.facebook.com/?id=${shareUrl}&fields=engagement&access_token=${appId}|${appSecret}`
-
-  jsonp(endpoint, (err: any, data: any) => {
-    callback(
-      !err && data && data.engagement ? data.engagement.share_count : undefined,
-    )
-  })
-}
-
-/**
  * Retrieves the share count of a URL on Hatena Bookmark.
  *
  * @param shareUrl - The URL to retrieve the share count for.
@@ -117,6 +94,9 @@ export function getOKShareCount(
 /**
  * Retrieves the share count of a URL on Pinterest.
  *
+ * Note: this relies on the legacy (unofficial) v1 count endpoint, which still
+ * responds as of 2026 but may disappear without notice.
+ *
  * @param shareUrl - The URL to retrieve the share count for.
  * @param callback - The callback function to be called with the share count.
  */
@@ -135,31 +115,6 @@ export function getPinterestShareCount(
       callback(!err && data ? data.count : undefined)
     },
   )
-}
-
-/**
- * Retrieves the share count of a URL on Reddit.
- *
- * @param shareUrl - The URL to retrieve the share count for.
- * @param callback - The callback function to be called with the share count.
- */
-export function getRedditShareCount(
-  shareUrl: string,
-  callback: (shareCount?: number) => void,
-) {
-  const endpoint = `https://www.reddit.com/api/info.json?limit=1&url=${shareUrl}`
-
-  jsonp(endpoint, { param: 'jsonp' }, (err, response) => {
-    callback(
-      !err &&
-        response &&
-        response.data &&
-        response.data.children.length > 0 &&
-        response.data.children[0].data.score
-        ? response.data.children[0].data.score
-        : undefined,
-    )
-  })
 }
 
 /**
@@ -200,10 +155,14 @@ export function getVKShareCount(
   if (!window.VK) {
     window.VK = {}
   }
-  window.VK.Share = {
-    count: (index, count) => window.VK.callbacks![index](count),
+  if (!window.VK.Share) {
+    window.VK.Share = {
+      count: (index, count) => window.VK.callbacks![index](count),
+    }
   }
-  window.VK.callbacks = []
+  if (!window.VK.callbacks) {
+    window.VK.callbacks = []
+  }
 
   const url = 'https://vk.com/share.php'
   const index = window.VK.callbacks.length

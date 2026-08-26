@@ -10,11 +10,12 @@ const Icon: React.FC<IconProps> = ({
   size,
   borderRadius,
   network,
+  style,
 }) => {
   const icon = icons[network.toString()]
 
   return (
-    <svg viewBox="0 0 64 64" width={size} height={size}>
+    <svg viewBox="0 0 64 64" width={size} height={size} style={style}>
       {round ? (
         <circle cx="32" cy="32" r="31" fill={background ?? icon?.color} />
       ) : (

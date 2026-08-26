@@ -1,7 +1,10 @@
 //=============LINK TYPES
 
+import * as React from 'react'
 import { CSSProperties, Ref } from 'react'
 
+// Bluesky Link: TYPE
+export type BlueskyLinkParams = { title?: string; separator?: string }
 // Email Link: TYPE
 export type EmailLinkParams = {
   body?: string
@@ -40,12 +43,12 @@ export type MailruLinkParams = {
 }
 // Pinterest Link: TYPE
 export type PinterestLinkParams = { media: string; description?: string }
-// Pocket Link: TYPE
-export type PocketLinkParams = { title?: string }
 // Reddit Link: TYPE
 export type RedditLinkParams = { title?: string }
 // Telegram Link: TYPE
 export type TelegramLinkParams = { title?: string }
+// Threads Link: TYPE
+export type ThreadsLinkParams = { title?: string }
 // Tumblr Link: TYPE
 export type TumblrLinkParams = {
   title?: string
@@ -53,13 +56,15 @@ export type TumblrLinkParams = {
   tags?: string
   posttype?: 'link' | string
 }
-// Twitter Link: TYPE
+// Twitter/X Link: TYPE
 export type TwitterLinkParams = {
   title?: string
   via?: string
   hashtags?: string[]
   related?: string[]
 }
+// X Link: TYPE
+export type XLinkParams = TwitterLinkParams
 // Viber Link: TYPE
 export type ViberLinkParams = { title?: string; separator?: string }
 // VK Link: TYPE
@@ -73,30 +78,15 @@ export type VKShareLinkParams = {
 export type WeiboShareLinkParams = { title?: string; image?: string }
 // WhatsApp Link: TYPE
 export type WhatsAppLinkParams = { title?: string; separator?: string }
-// Workplace Link: TYPE
-export type WorkplaceLinkParams = {
-  quote?: string
-  hashtag?: string
-}
 
 //======= HOC TYPES
-export type SocialMediaShareCountProps =
-  React.HTMLAttributes<HTMLSpanElement> & {
-    children?: (shareCount: number) => React.ReactNode
-    getCount: (
-      url: string,
-      callback: (shareCount?: number) => void,
-      appId?: string,
-      appSecret?: string,
-    ) => void
-    url: string
-    appId?: string
-    appSecret?: string
-  }
-
-export type StateTypes = {
-  count?: number
-  isLoading: boolean
+export type SocialMediaShareCountProps = Omit<
+  React.HTMLAttributes<HTMLSpanElement>,
+  'children'
+> & {
+  children?: (shareCount: number) => React.ReactNode
+  getCount: (url: string, callback: (shareCount?: number) => void) => void
+  url: string
 }
 
 //======= ICON TYPES
@@ -122,7 +112,7 @@ export type WindowPosition = 'windowCenter' | 'screenCenter'
 export type CustomProps<LinkOptions> = {
   buttonTitle?: string
   /**
-   * Disables click action and adds `disabled` class
+   * Disables click action and applies `disabledStyle`
    */
   disabled?: boolean
   /**
@@ -170,4 +160,5 @@ export type IconProps = {
   round?: boolean
   size?: number
   borderRadius?: React.CSSProperties['borderRadius']
+  style?: CSSProperties
 }

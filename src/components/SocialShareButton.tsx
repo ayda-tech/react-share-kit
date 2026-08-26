@@ -15,6 +15,15 @@ export type Props<LinkOptions> = Omit<
 > &
   CustomProps<LinkOptions>
 
+const resetStyle: React.CSSProperties = {
+  backgroundColor: 'transparent',
+  border: 'none',
+  padding: 0,
+  font: 'inherit',
+  color: 'inherit',
+  cursor: 'pointer',
+}
+
 const SocialShareButton = <LinkOptions,>({
   onShareWindowClose,
   windowHeight = 400,
@@ -23,20 +32,23 @@ const SocialShareButton = <LinkOptions,>({
   blankTarget = false,
   beforeOnClick,
   disabled,
+  disabledStyle = { opacity: 0.6 },
   networkLink,
   onClick,
   url,
-  openShareDialogOnClick,
+  openShareDialogOnClick = true,
   opts,
   children,
   forwardedRef,
   networkName,
   style,
+  resetButtonStyle = true,
   round,
   bgColor,
   size = 64,
   borderRadius = 0,
   iconFillColor,
+  iconStyle,
   buttonTitle,
   color,
   ...rest
@@ -56,13 +68,13 @@ const SocialShareButton = <LinkOptions,>({
   }
 
   const handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
-    const link = networkLink(url, opts)
-
     if (disabled) {
       return
     }
 
     event.preventDefault()
+
+    const link = networkLink(url, opts)
 
     if (beforeOnClick) {
       const returnVal = beforeOnClick()
@@ -73,7 +85,11 @@ const SocialShareButton = <LinkOptions,>({
     }
 
     if (openShareDialogOnClick) {
-      openShareDialog(link)
+      if (link.startsWith('mailto:')) {
+        window.location.href = link
+      } else {
+        openShareDialog(link)
+      }
     }
 
     if (onClick) {
@@ -81,44 +97,39 @@ const SocialShareButton = <LinkOptions,>({
     }
   }
 
-  const newStyle = {
-    backgroundColor: 'transparent',
-    border: 'none',
-    padding: 0,
-    font: 'inherit',
-    color: 'inherit',
-    cursor: 'pointer',
-    outline: 'none',
+  const newStyle: React.CSSProperties = {
+    ...(resetButtonStyle ? resetStyle : {}),
     ...style,
+    ...(disabled ? disabledStyle : {}),
   }
 
   return (
     <button
-      aria-label={rest['aria-label'] || networkName}
+      type="button"
+      aria-label={networkName}
+      {...rest}
       onClick={handleClick}
       ref={forwardedRef || buttonRef}
       style={newStyle}
+      disabled={disabled}
     >
       {buttonTitle ? (
         buttonTitle
+      ) : children !== undefined ? (
+        children
       ) : (
         <Icon
           network={networkName}
           background={bgColor}
-          color={color}
+          color={color ?? iconFillColor}
           borderRadius={borderRadius}
           round={round}
           size={size}
+          style={iconStyle}
         />
       )}
     </button>
   )
-}
-
-SocialShareButton.defaultProps = {
-  disabledStyle: { opacity: 0.6 },
-  openShareDialogOnClick: true,
-  resetButtonStyle: true,
 }
 
 export default SocialShareButton

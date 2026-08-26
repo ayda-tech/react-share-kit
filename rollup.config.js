@@ -1,60 +1,41 @@
-import typescript from 'rollup-plugin-typescript2'
-import babel from '@rollup/plugin-babel'
-import commonjs from '@rollup/plugin-commonjs'
-import terser from '@rollup/plugin-terser'
+import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
 import bundleSize from 'rollup-plugin-bundle-size'
 
-import packageJSON from './package.json' assert { type: 'json' }
-
-// ======= FOR BUILDING NODE.JS PACKAGE =======
-// import builtins from 'builtin-modules'
-// import resolve, { nodeResolve } from '@rollup/plugin-node-resolve'
-// ============================================
+const banner = "'use client';"
 
 export default [
   {
     input: 'src/index.ts',
     output: [
       {
-        file: packageJSON.main,
+        file: 'dist/index.cjs',
         format: 'cjs',
         exports: 'named',
+        banner,
       },
       {
-        file: packageJSON.module,
-        format: 'esm',
+        file: 'dist/index.es.js',
+        format: 'es',
         exports: 'named',
+        banner,
       },
     ],
-    // external: builtins,
-    external: ['react', 'react-dom'],
+    external: ['react', 'react-dom', 'react/jsx-runtime', 'jsonp'],
     plugins: [
       typescript({
-        check: true,
         tsconfig: './tsconfig.json',
       }),
-      babel({
-        exclude: 'node_modules/**',
-        babelHelpers: 'bundled',
-      }),
-      // resolve({
-      //   preferBuiltins: true,
-      // }),
-      // nodeResolve(),
-      commonjs({
-        extensions: ['.js', '.ts', '.tsx'],
-      }),
-      terser(),
       bundleSize(),
     ],
   },
   {
-    input: 'src/types.d.ts',
-    output: {
-      file: 'dist/types.d.ts',
-      format: 'es',
-    },
+    input: 'src/index.ts',
+    output: [
+      { file: 'dist/index.d.ts', format: 'es' },
+      { file: 'dist/index.d.cts', format: 'es' },
+    ],
+    external: ['react', 'react-dom', 'jsonp'],
     plugins: [dts()],
   },
 ]

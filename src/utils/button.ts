@@ -1,5 +1,6 @@
-import transformObjectToParams, { isMobileOrTablet } from '.'
+import transformObjectToParams from '.'
 import {
+  BlueskyLinkParams,
   EmailLinkParams,
   FacebookLinkParams,
   FacebookMessengerLinkParams,
@@ -11,16 +12,15 @@ import {
   LiveJournalLinkParams,
   MailruLinkParams,
   PinterestLinkParams,
-  PocketLinkParams,
   RedditLinkParams,
   TelegramLinkParams,
+  ThreadsLinkParams,
   TumblrLinkParams,
   TwitterLinkParams,
   VKShareLinkParams,
   ViberLinkParams,
   WeiboShareLinkParams,
   WhatsAppLinkParams,
-  WorkplaceLinkParams,
 } from '../types'
 
 /**
@@ -56,7 +56,7 @@ export function facebookLink(
  */
 export function emailLink(
   url: string,
-  { subject, body, separator }: EmailLinkParams,
+  { subject, body, separator = ' ' }: EmailLinkParams,
 ) {
   return (
     'mailto:' +
@@ -118,7 +118,14 @@ export function gabLink(url: string, { title }: GapLinkParams) {
  * @returns The Hatena bookmark link.
  */
 export function hatenaLink(url: string, { title }: HatenaLinkParams) {
-  return `http://b.hatena.ne.jp/add?mode=confirm&url=${url}&title=${title}`
+  return (
+    'https://b.hatena.ne.jp/add' +
+    transformObjectToParams({
+      mode: 'confirm',
+      url,
+      title,
+    })
+  )
 }
 
 /**
@@ -134,7 +141,7 @@ export function instapaperLink(
   { title, description }: InstaPaperLinkParams,
 ) {
   return (
-    'http://www.instapaper.com/hello2' +
+    'https://www.instapaper.com/hello2' +
     transformObjectToParams({
       url,
       title,
@@ -174,8 +181,7 @@ export function linkedinLink(
   { title, summary, source }: LinkedInLinkParams,
 ) {
   return (
-    // 'https://linkedin.com/shareArticle' +
-    'https://linkedin.com/sharing/share-offsite' +
+    'https://www.linkedin.com/sharing/share-offsite/' +
     transformObjectToParams({ url, mini: 'true', title, summary, source })
   )
 }
@@ -248,23 +254,6 @@ export function pinterestLink(
 }
 
 /**
- * Generates a Pocket saving link.
- *
- * @param url - The URL to be saved.
- * @param title - The title of the saved item (optional).
- * @returns The Pocket saving link.
- */
-export function pocketLink(url: string, { title }: PocketLinkParams) {
-  return (
-    'https://getpocket.com/save' +
-    transformObjectToParams({
-      url,
-      title,
-    })
-  )
-}
-
-/**
  * Generates a Reddit submission link.
  *
  * @param url - The URL to be submitted.
@@ -290,7 +279,7 @@ export function redditLink(url: string, { title }: RedditLinkParams) {
  */
 export function telegramLink(url: string, { title }: TelegramLinkParams) {
   return (
-    'https://telegram.me/share/' +
+    'https://t.me/share/url' +
     transformObjectToParams({
       url,
       text: title,
@@ -325,21 +314,21 @@ export function tumblrLink(
 }
 
 /**
- * Generates a Twitter sharing link.
+ * Generates an X (formerly Twitter) post intent link.
  *
  * @param url - The URL to be shared.
  * @param title - The title of the shared content (optional).
- * @param via - The Twitter username to attribute the tweet to (optional).
- * @param hashtags - An array of hashtags to include in the tweet (optional).
- * @param related - An array of related accounts to suggest following after the tweet is sent (optional).
- * @returns The Twitter sharing link.
+ * @param via - The X username to attribute the post to (optional).
+ * @param hashtags - An array of hashtags to include in the post (optional).
+ * @param related - An array of related accounts to suggest following after the post is sent (optional).
+ * @returns The X post intent link.
  */
-export function twitterLink(
+export function xLink(
   url: string,
   { title, via, hashtags = [], related = [] }: TwitterLinkParams,
 ) {
   return (
-    'https://twitter.com/intent/tweet' +
+    'https://x.com/intent/post' +
     transformObjectToParams({
       url,
       text: title,
@@ -351,6 +340,13 @@ export function twitterLink(
 }
 
 /**
+ * Generates a Twitter sharing link (now an alias of the X post intent).
+ *
+ * @deprecated Use {@link xLink} instead.
+ */
+export const twitterLink = xLink
+
+/**
  * Generates a Viber sharing link.
  *
  * @param url - The URL to be shared.
@@ -358,7 +354,10 @@ export function twitterLink(
  * @param separator - The separator between the title and URL (optional).
  * @returns The Viber sharing link.
  */
-export function viberLink(url: string, { title, separator }: ViberLinkParams) {
+export function viberLink(
+  url: string,
+  { title, separator = ' ' }: ViberLinkParams,
+) {
   return (
     'viber://forward' +
     transformObjectToParams({
@@ -403,7 +402,7 @@ export function vkLink(
  */
 export function weiboLink(url: string, { title, image }: WeiboShareLinkParams) {
   return (
-    'http://service.weibo.com/share/share.php' +
+    'https://service.weibo.com/share/share.php' +
     transformObjectToParams({
       url,
       title,
@@ -422,12 +421,10 @@ export function weiboLink(url: string, { title, image }: WeiboShareLinkParams) {
  */
 export function whatsappLink(
   url: string,
-  { title, separator }: WhatsAppLinkParams,
+  { title, separator = ' ' }: WhatsAppLinkParams,
 ) {
   return (
-    'https://' +
-    (isMobileOrTablet() ? 'api' : 'web') +
-    '.whatsapp.com/send' +
+    'https://api.whatsapp.com/send' +
     transformObjectToParams({
       text: title ? title + separator + url : url,
     })
@@ -435,23 +432,38 @@ export function whatsappLink(
 }
 
 /**
- * Generates a Workplace sharing link.
+ * Generates a Bluesky compose link.
  *
  * @param url - The URL to be shared.
- * @param quote - The quote or message to include in the shared content (optional).
- * @param hashtag - The hashtag to include in the shared content (optional).
- * @returns The Workplace sharing link.
+ * @param title - The title of the shared content (optional).
+ * @param separator - The separator between the title and URL (optional).
+ * @returns The Bluesky compose link.
  */
-export function workplaceLink(
+export function blueskyLink(
   url: string,
-  { quote, hashtag }: WorkplaceLinkParams,
+  { title, separator = ' ' }: BlueskyLinkParams,
 ) {
   return (
-    'https://work.facebook.com/sharer.php' +
+    'https://bsky.app/intent/compose' +
     transformObjectToParams({
-      u: url,
-      quote,
-      hashtag,
+      text: title ? title + separator + url : url,
+    })
+  )
+}
+
+/**
+ * Generates a Threads post link.
+ *
+ * @param url - The URL to be shared.
+ * @param title - The title of the shared content (optional).
+ * @returns The Threads post link.
+ */
+export function threadsLink(url: string, { title }: ThreadsLinkParams) {
+  return (
+    'https://www.threads.net/intent/post' +
+    transformObjectToParams({
+      url,
+      text: title,
     })
   )
 }

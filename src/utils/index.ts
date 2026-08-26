@@ -4,6 +4,9 @@
  * @returns A boolean indicating whether the device is a mobile or tablet device.
  */
 export function isMobileOrTablet() {
+  if (typeof navigator === 'undefined') {
+    return false
+  }
   return /(android|iphone|ipad|mobile)/i.test(navigator.userAgent)
 }
 
@@ -41,33 +44,44 @@ export function CustomWindow(
     ...configRest,
   }
 
-  let dialog: Window
+  let dialog: Window | null
 
   if (blankTarget) {
-    dialog = <Window>window.open(url, '_blank')
+    // `noopener` makes window.open() return null, so it can only be used when
+    // the caller does not need the handle to detect the window closing.
+    dialog = window.open(
+      url,
+      '_blank',
+      onClose ? undefined : 'noopener,noreferrer',
+    )
   } else {
-    dialog = <Window>window.open(
+    dialog = window.open(
       url,
       '',
       Object.keys(config)
         .map((key) => `${key}=${config[key]}`)
-        .join(', '),
+        .join(','),
     )
   }
 
   if (onClose) {
-    const interval = window.setInterval(() => {
-      try {
-        if (dialog === null || dialog.closed) {
+    if (dialog === null) {
+      onClose(dialog)
+    } else {
+      const interval = window.setInterval(() => {
+        try {
+          if (dialog === null || dialog.closed) {
+            window.clearInterval(interval)
+            onClose(dialog)
+          }
+        } catch (e) {
           window.clearInterval(interval)
-          onClose(dialog)
+          /* eslint-disable no-console */
+          console.error(e)
+          /* eslint-enable no-console */
         }
-      } catch (e) {
-        /* eslint-disable no-console */
-        console.error(e)
-        /* eslint-enable no-console */
-      }
-    }, 1000)
+      }, 1000)
+    }
   }
 
   return dialog

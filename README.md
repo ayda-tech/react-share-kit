@@ -1,8 +1,8 @@
 
 # React-Share-Kit 
-React-Share-Kit is a simple and easy-to-use library for adding social media share buttons to your React & Next applications. With React-Share-Kit, you can quickly integrate share buttons for popular social media platforms such as Facebook, Twitter, LinkedIn, and more.
+React-Share-Kit is a simple and easy-to-use library for adding social media share buttons to your React & Next applications. With React-Share-Kit, you can quickly integrate share buttons for popular social media platforms such as Facebook, X (formerly Twitter), LinkedIn, and more.
 
-If package size is mater and you don't need use share count functionality instead of your React.js, Next.js and PReact project build with Javascript and Typescript. [React-share-lite](https://www.npmjs.com/package/react-share-lite) is the solution to enhance your application performance.
+If package size matters and you don't need share counts, [react-share-lite](https://www.npmjs.com/package/react-share-lite) is the lightweight alternative.
 ****
 [![downloads](https://img.shields.io/npm/dm/react-share-kit.svg?label=monthly%20downloads)](https://www.npmjs.com/package/react-share-kit) [![downloads](https://img.shields.io/npm/dt/react-share-kit.svg?label=total%20downloads)](https://www.npmjs.com/package/react-share-kit)
 
@@ -10,6 +10,16 @@ If package size is mater and you don't need use share count functionality instea
 
 ![Share buttons screenshot](https://github.com/ayda-tech/react-share-lite/blob/main/react-share-lite.png?raw=true)
 
+### 🚀 What's new in v2.0.0
+
+- **React 19 ready** — works with React 17, 18 and 19, and with the Next.js App Router (the bundle ships a `'use client'` banner).
+- **New networks** — `XShare` (the canonical X button), `BlueskyShare` and `ThreadsShare`.
+- **Styleable at last** — `className`, `style` and every other standard button HTML attribute are forwarded to the underlying `<button>`.
+- **Dead networks removed** — `PocketShare` and `WorkplaceShare` are gone (both services were shut down), along with the broken `FacebookCount` and `RedditCount`.
+
+See [CHANGELOG.md](./CHANGELOG.md) for the full list, including breaking changes.
+
+**Requirements:** React 17, 18 or 19.
 
 ---
 
@@ -20,7 +30,10 @@ If package size is mater and you don't need use share count functionality instea
   - [📕 Share Button Global Props](#-share-button-global-props)
   - [💡 Usage of ShareButtons](#-usage-of-sharebuttons)
     - [Facebook Share](#facebook-share)
-    - [Twitter Share](#twitter-share)
+    - [X Share](#x-share)
+    - [Twitter Share (deprecated)](#twitter-share-deprecated)
+    - [Bluesky Share](#bluesky-share)
+    - [Threads Share](#threads-share)
     - [Linkedin Share](#linkedin-share)
     - [Whatsapp Share](#whatsapp-share)
     - [Telegram Share](#telegram-share)
@@ -35,19 +48,17 @@ If package size is mater and you don't need use share count functionality instea
     - [Weibo Share](#weibo-share)
     - [Mailru Share](#mailru-share)
     - [LiveJournal Share](#livejournal-share)
-    - [Workplace Share](#workplace-share)
-    - [Pocket Share](#pocket-share)
     - [Instapaper Share](#instapaper-share)
     - [Hatena Share](#hatena-share)
     - [Gab Share](#gab-share)
   - [📕 Share Count global props](#-share-count-global-props)
   - [💡 Usage of ShareCount](#-usage-of-sharecount)
-    - [Facebook Count](#facebook-count)
     - [Hatena Count](#hatena-count)
     - [OK Count](#ok-count)
     - [Pinterest Count](#pinterest-count)
     - [Tumblr Count](#tumblr-count)
     - [VK Count](#vk-count)
+  - [❓ FAQ](#-faq)
   - [License](#license)
 
 ## Installation
@@ -80,12 +91,25 @@ Each button supports a set of global props that are consistent across all button
 | borderRadius  | number | 0px | Custom round share. | FALSE |
 | size  | number | 64px | The button size. | FALSE |
 | buttonTitle  | string | | The title of button used instead of icon. | FALSE |
+| disabled | boolean | false | Disables the button click and applies `disabledStyle`. | FALSE |
+| disabledStyle | CSSProperties | `{ opacity: 0.6 }` | Style applied to the button while it is disabled. | FALSE |
+| style | CSSProperties |  | Custom style of the underlying `<button>` element. | FALSE |
+| iconStyle | CSSProperties |  | Custom style of the icon SVG. | FALSE |
+| iconFillColor | string |  | Fill color of the icon path. | FALSE |
+| windowPosition | `windowCenter` \| `screenCenter` | windowCenter | Position of the share popup window. | FALSE |
+| openShareDialogOnClick | boolean | true | Open the share dialog on click. | FALSE |
+| onClick | function |  | `(event, link) => void` called on click, after the share dialog is handled. | FALSE |
+| beforeOnClick | function |  | Takes a function that returns a Promise to be fulfilled before opening the share dialog. | FALSE |
+| onShareWindowClose | function |  | Takes a function to be called after closing the share dialog. | FALSE |
+| resetButtonStyle | boolean | true | Reset the browser's default button styles. | FALSE |
+
+🎨 <b>Styling</b>: all standard button HTML attributes (`className`, `style`, `aria-*`, `data-*`, event handlers, ...) are forwarded to the underlying `<button>` element, so you can style the buttons with your own CSS classes.
 
 👨‍💻 <b>Example</b> 
 
 ```jsx
 import React from 'react';
-import { FacebookShare, FacebookCount } from 'react-share-kit';
+import { FacebookShare, XShare, PinterestCount } from 'react-share-kit';
 
 const ShareButtons = () => {
   const shareUrl = 'https://github.com/ayda-tech/react-share-kit';
@@ -95,19 +119,13 @@ const ShareButtons = () => {
       <>
         <FacebookShare url={shareUrl} quote={title} />
 
-        <FacebookCount
-          url={shareUrl}
-          appId='your-app-id'
-          appSecret='your-app-secret'
-        />
+        <XShare url={shareUrl} title={title} className="my-share-button" />
 
-        <FacebookCount
-          url={shareUrl}
-          appId='your-app-id'
-          appSecret='your-app-secret'
-        >
+        <PinterestCount url={shareUrl} />
+
+        <PinterestCount url={shareUrl}>
           {shareCount => <span className="wrapper">{shareCount}</span>}
-        </FacebookCount>
+        </PinterestCount>
       </>
   );
 };
@@ -137,7 +155,30 @@ import { FacebookShare } from 'react-share-kit'
 | quote | string |  | A quote to be shared. | FALSE |
 | hashtag | string |  | Hashtag to be shared. | FALSE |
 
-###  Twitter Share
+###  X Share
+
+👨‍💻 <b>Example</b> 
+
+```js
+import { XShare } from 'react-share-kit'
+
+<XShare
+  url={'https://github.com/ayda-tech/react-share-kit'}
+  title={'react-share-kit - social share buttons for next & react apps.'}
+  hashtags={['react-share-kit', 'front-end']}
+/>
+```
+📕 <b>Props</b>: Supports only on X
+
+| Props | Type | Default | Description | Required |
+| :--- | :--- | :--- | :--- | :--- |
+| via | string |  | X username to attribute the post to (without `@`). | FALSE |
+| hashtags | <code>Array&lt;string&gt;</code> |  | Hashtags to include in the post (without `#`). | FALSE |
+| related | <code>Array&lt;string&gt;</code> |  | Accounts to suggest following after the post is sent. | FALSE |
+
+###  Twitter Share (deprecated)
+
+> ⚠️ <b>Deprecated</b>: Twitter is now X. `TwitterShare` is kept as an alias of [`XShare`](#x-share) — it renders the X logo and opens `x.com/intent/post` — but you should use `XShare` in new code.
 
 👨‍💻 <b>Example</b> 
 
@@ -147,16 +188,44 @@ import { TwitterShare } from 'react-share-kit'
 <TwitterShare
   url={'https://github.com/ayda-tech/react-share-kit'}
   title={'react-share-kit - social share buttons for next & react apps.'}
-  hashtags=["#react-share-kit", "#front-end"]
+  hashtags={['react-share-kit', 'front-end']}
 />
 ```
-📕 <b>Props</b>: Supports only on Twitter
+
+📕 <b>Props</b>: Same as [X Share](#x-share).
+
+###  Bluesky Share
+
+👨‍💻 <b>Example</b> 
+
+```js
+import { BlueskyShare } from 'react-share-kit'
+
+<BlueskyShare
+  url={'https://github.com/ayda-tech/react-share-kit'}
+  title={'react-share-kit - social share buttons for next & react apps.'}
+  separator=":: "
+/>
+```
+
+📕 <b>Props</b>: Supports only on Bluesky
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
-| via | string |  |  | FALSE |
-| hashtags | array |  |  | FALSE |
-| related | array |  |  | FALSE |
+| separator | string |  | Separator between the title and the URL. | FALSE |
+
+###  Threads Share
+
+👨‍💻 <b>Example</b> 
+
+```js
+import { ThreadsShare } from 'react-share-kit'
+
+<ThreadsShare
+  url={'https://github.com/ayda-tech/react-share-kit'}
+  title={'react-share-kit - social share buttons for next & react apps.'}
+/>
+```
 
 ###  Linkedin Share
 
@@ -230,7 +299,7 @@ import { EmailShare } from 'react-share-kit'
 
 <EmailShare
   url={'https://github.com/ayda-tech/react-share-kit'}
-  subject={'Next Share'}
+  subject={'React Share Kit'}
   body="body"
 />
 ```
@@ -239,12 +308,9 @@ import { EmailShare } from 'react-share-kit'
 
 | Props | Type | Default | Description | Required |
 | :--- | :--- | :--- | :--- | :--- |
-| children | node |  | React component, HTML element or string. | TRUE |
-| url | string |  | The URL of the shared page. | TRUE |
-| subject | string |  |  | FALSE |
-| body | string |  |  | FALSE |
-| separator | string |  |  | FALSE |
-| blankTarget | boolean | false | Open share window in a new tab if set to `true`. | FALSE |
+| subject | string |  | The subject line of the email. | FALSE |
+| body | string |  | The body content of the email; the URL is appended to it. | FALSE |
+| separator | string |  | Separator between the body and the URL. | FALSE |
 
 ###  VK Share
 
@@ -356,7 +422,7 @@ import { WeiboShare } from 'react-share-kit'
 <WeiboShare
   url={'https://github.com/ayda-tech/react-share-kit'}
   title={'react-share-kit - social share buttons for next & react apps.'}
-  image={`${String(window.location)}/${example-image}`}
+  image={`${String(window.location)}/example-image.png`}
 />
 ```
 
@@ -399,38 +465,6 @@ import { LiveJournalShare } from 'react-share-kit'
 | :--- | :--- | :--- | :--- | :--- |
 | description | string |  | Description of the shared page. | FALSE |
 
-###  Workplace Share
-
-👨‍💻 <b>Example</b> 
-
-```js
-import { WorkplaceShare } from 'react-share-kit'
-
-<WorkplaceShare
-  url={'https://github.com/ayda-tech/react-share-kit'}
-  quote={'React Share Kit'}
-/>
-```
-
-📕 <b>Props</b>: Supports only on Workspace
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| quote | string |  |  | FALSE |
-| hashtag | string |  |  | FALSE |
-
-###  Pocket Share
-
-👨‍💻 <b>Example</b> 
-
-```js
-import {
-  PocketShare
-} from 'react-share-kit'
-
-<PocketShare url='https://github.com/ayda-tech/react-share-kit' />
-```
-
 ###  Instapaper Share
 
 👨‍💻 <b>Example</b> 
@@ -454,7 +488,7 @@ import { InstapaperShare } from 'react-share-kit'
 ```js
 import { HatenaShare } from 'react-share-kit'
 
-<HatenaShare url={'https://github.com/ayda-tech/react-share-kit' />
+<HatenaShare url={'https://github.com/ayda-tech/react-share-kit'} />
 ```
 
 ###  Gab Share
@@ -473,39 +507,10 @@ import { GabShare } from 'react-share-kit'
 | :--- | :--- | :--- | :--- | :--- |
 | url | string |  | The URL of the shared page. | TRUE |
 | children | node |  | React component, HTML element or string. | FALSE |
-| appId | string |  | Facebook application id. | TRUE |
-| appSecret | string |  | Facebook application secret. | TRUE |
 
 ## 💡 Usage of ShareCount
 
-###  Facebook Count
-
-👨‍💻 <b>Example</b> 
-
-```js
-import { FacebookCount } from 'react-share-kit'
-
-<FacebookCount
-  url='https://github.com/ayda-tech/react-share-kit'
-  appId=''
-  appSecret=''
-/>
-
-<FacebookCount
-  url='https://github.com/ayda-tech/react-share-kit'
-  appId=''
-  appSecret=''
->
-  {shareCount => <span className="wrapper">{shareCount}</span>}
-</FacebookCount>
-```
-
-📕 <b>Props</b>: Supports only on Facebook count
-
-| Props | Type | Default | Description | Required |
-| :--- | :--- | :--- | :--- | :--- |
-| appId | string |  | Facebook application id. | TRUE |
-| appSecret | string |  | Facebook application secret. | TRUE |
+> ⚠️ The count components use the networks' legacy public count endpoints, which work today but are unofficial and can disappear without notice.
 
 ###  Hatena Count
 
@@ -540,7 +545,7 @@ import { OKCount } from 'react-share-kit'
 👨‍💻 <b>Example</b> 
 
 ```js
-import { PinterestShareCount } from 'react-share-kit'
+import { PinterestCount } from 'react-share-kit'
 
 <PinterestCount url={'https://github.com/ayda-tech/react-share-kit'} />
 
@@ -570,12 +575,18 @@ import { TumblrCount } from 'react-share-kit'
 ```js
 import { VKCount } from 'react-share-kit'
 
-<VKSCount url={'https://github.com/ayda-tech/react-share-kit'} />
+<VKCount url={'https://github.com/ayda-tech/react-share-kit'} />
 
 <VKCount url={'https://github.com/ayda-tech/react-share-kit'}>
   {shareCount => <span className="wrapper">{shareCount}</span>}
 </VKCount>
 ```
+
+## ❓ FAQ
+
+<b>Why doesn't my shared link show an image preview?</b>
+
+Link previews are generated from the Open Graph / Twitter Card meta tags of the <b>shared page</b>, not by this library. The share buttons only pass the URL to the network; the network then crawls that URL for its preview. Add `og:image`, `og:title`, `og:description` (and, for X, the `twitter:card` tags) to the `<head>` of the page you are sharing.
 
 ## License
 
